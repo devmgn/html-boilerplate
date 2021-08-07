@@ -32,6 +32,17 @@ module.exports = {
         singleQuote: true,
       },
     ],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        json: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
   },
   overrides: [
     {

@@ -18,7 +18,7 @@ const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
 const ImageMinimizerWebpackPlugin = require('image-minimizer-webpack-plugin');
 // @ts-ignore
 // TODO: fix types
-const WebpackFixStyleOnlyEntries = require('webpack-fix-style-only-entries');
+const WebpackRemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -228,8 +228,8 @@ module.exports = () => {
       new MiniCssExtractPlugin({
         filename: `${placeholders}.css`,
       }),
-      new WebpackFixStyleOnlyEntries({
-        silent: !isProductionBuild,
+      new WebpackRemoveEmptyScriptsPlugin({
+        verbose: !isProductionBuild,
       }),
       new CopyWebpackPlugin({
         patterns: [
