@@ -8,7 +8,6 @@
 const glob = require('glob');
 const path = require('path');
 const sass = require('sass');
-const svgo = require('svgo');
 
 // webpack plugins
 const TerserWebpackPlugin = require('terser-webpack-plugin');
@@ -215,11 +214,16 @@ module.exports = () => {
             [
               'svgo',
               {
-                plugins: svgo.extendDefaultPlugins([
-                  { name: 'removeViewBox', active: false },
-                  { name: 'removeDimensions', active: true },
-                  { name: 'removeAttrs', active: true, params: { attrs: ['data.*'] } },
-                ]),
+                name: 'preset-default',
+                params: {
+                  overrides: {
+                    removeViewBox: false,
+                    removeDimensions: true,
+                    removeAttrs: {
+                      params: { attrs: ['data.*'] },
+                    },
+                  },
+                },
               },
             ],
           ],
