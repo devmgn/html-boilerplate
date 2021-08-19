@@ -16,6 +16,6 @@ module.exports = {
     postcssFlexbugsFixes(),
     postcssObjectFitImages(),
     postcssSelectorNot(),
-    autoprefixer({ grid: true }),
+    autoprefixer(),
   ],
 };

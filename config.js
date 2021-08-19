@@ -48,10 +48,7 @@ module.exports = {
   /** @type { string } */
   targetsPatternToCopy: config.targetsPatternToCopy,
 
-  /**
-   * placeholder
-   * @type { string }
-   */
+  /** @type { string } */
   placeholders: config.placeholders,
 
   /** @type { string } */

@@ -49,13 +49,37 @@ module.exports = () => {
   const assetModuleOptions = {
     type: 'asset',
     parser: {
-      dataUrlCondition: {
-        maxSize: 1024 / 4,
-      },
+      dataUrlCondition: { maxSize: 1024 / 4 },
     },
   };
 
-  return {
+  const imageMinimizerWebpackPlugin = new ImageMinimizerWebpackPlugin({
+    minimizerOptions: {
+      plugins: [
+        ['mozjpeg', { quality: 65 }],
+        'gifsicle',
+        'pngquant',
+        [
+          'svgo',
+          {
+            name: 'preset-default',
+            params: {
+              overrides: {
+                removeViewBox: false,
+                removeDimensions: true,
+                removeAttrs: {
+                  params: { attrs: ['data.*'] },
+                },
+              },
+            },
+          },
+        ],
+      ],
+    },
+  });
+
+  /** @type { WebpackConfiguration } */
+  const config = {
     mode: isProductionBuild ? 'production' : 'development',
     entry: getMultipleEntry(),
     output: {
@@ -76,9 +100,7 @@ module.exports = () => {
           exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
-            options: {
-              cacheDirectory: true,
-            },
+            options: { cacheDirectory: true },
           },
         },
         // Sass
@@ -136,22 +158,19 @@ module.exports = () => {
               type: 'asset/source',
             },
             // default
-            {
-              ...assetModuleOptions,
-            },
+            { ...assetModuleOptions },
           ],
         },
       ],
     },
     resolve: {
       alias: {
-        '@': path.resolve(directory.src, directory.javascript),
+        '@': [path.resolve(directory.src), path.resolve(directory.src, directory.javascript)],
       },
       modules: ['node_modules', directory.src],
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
     },
     optimization: {
-      chunkIds: isProductionBuild ? 'total-size' : 'named',
       splitChunks: {
         cacheGroups: {
           defaultVendors: {
@@ -162,11 +181,9 @@ module.exports = () => {
           },
         },
       },
-      minimize: true,
+      minimize: isProductionBuild,
       minimizer: [
-        new TerserWebpackPlugin({
-          extractComments: false,
-        }),
+        new TerserWebpackPlugin({ extractComments: false }),
         new CssMinimizerWebpackPlugin({
           minimizerOptions: {
             preset: [
@@ -181,60 +198,28 @@ module.exports = () => {
       ],
     },
     plugins: [
-      ...glob
-        .sync('**/[!_]*.pug', {
-          cwd: directory.src,
-        })
-        .map((src) => {
-          return new HtmlWebpackPlugin({
-            template: path.join(directory.src, src),
-            filename: path.format({
-              dir: path.dirname(src),
-              name: path.parse(src).name,
-              ext: '.html',
-            }),
-            inject: false,
-            minify: {
-              // HTMLMinifier
-              // @see https://github.com/DanielRuf/html-minifier-terser#options-quick-reference
-              removeStyleLinkTypeAttributes: true,
-              removeScriptTypeAttributes: true,
-              collapseBooleanAttributes: true,
-              collapseWhitespace: isProductionBuild,
-            },
-            isProduction: isProductionBuild,
-          });
-        }),
-      new ImageMinimizerWebpackPlugin({
-        minimizerOptions: {
-          plugins: [
-            'mozjpeg',
-            'gifsicle',
-            'pngquant',
-            [
-              'svgo',
-              {
-                name: 'preset-default',
-                params: {
-                  overrides: {
-                    removeViewBox: false,
-                    removeDimensions: true,
-                    removeAttrs: {
-                      params: { attrs: ['data.*'] },
-                    },
-                  },
-                },
-              },
-            ],
-          ],
-        },
+      ...glob.sync('**/[!_]*.pug', { cwd: directory.src }).map((src) => {
+        return new HtmlWebpackPlugin({
+          template: path.join(directory.src, src),
+          filename: path.format({
+            dir: path.dirname(src),
+            name: path.parse(src).name,
+            ext: '.html',
+          }),
+          inject: false,
+          minify: {
+            // HTMLMinifier
+            // @see https://github.com/DanielRuf/html-minifier-terser#options-quick-reference
+            removeStyleLinkTypeAttributes: true,
+            removeScriptTypeAttributes: true,
+            collapseBooleanAttributes: true,
+            collapseWhitespace: isProductionBuild,
+          },
+          isProduction: isProductionBuild,
+        });
       }),
-      new MiniCssExtractPlugin({
-        filename: `${placeholders}.css`,
-      }),
-      new WebpackRemoveEmptyScriptsPlugin({
-        verbose: !isProductionBuild,
-      }),
+      new MiniCssExtractPlugin({ filename: `${placeholders}.css` }),
+      new WebpackRemoveEmptyScriptsPlugin({ verbose: !isProductionBuild }),
       new CopyWebpackPlugin({
         patterns: [
           {
@@ -251,6 +236,13 @@ module.exports = () => {
     devtool: !isProductionBuild && 'inline-source-map',
     cache: {
       type: 'filesystem',
+      buildDependencies: { config: [__filename] },
     },
   };
+
+  if (isProductionBuild && config.plugins) {
+    config.plugins.push(imageMinimizerWebpackPlugin);
+  }
+
+  return config;
 };
