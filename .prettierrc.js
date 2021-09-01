@@ -6,6 +6,12 @@
 module.exports = {
   printWidth: 120,
   overrides: [
+    {
+      files: '*.[jt]s?(x)',
+      options: {
+        singleQuote: true,
+      },
+    },
     /**
      * @prettier/plugin-pug
      * @see https://github.com/prettier/plugin-pug
@@ -14,7 +20,6 @@ module.exports = {
       files: '*.pug',
       options: {
         parser: 'pug',
-        pugSingleQuote: false,
         pugAttributeSeparator: 'as-needed',
       },
     },

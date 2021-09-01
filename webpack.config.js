@@ -30,18 +30,15 @@ const { directory, javascriptPattern, resourcesRegExp, targetsPatternToCopy, pla
 module.exports = () => {
   const isProductionBuild = process.env.NODE_ENV === 'production';
 
-  const getMultipleEntry = () => {
-    return glob
-      .sync(`**/@(?(*.)bundle.${javascriptPattern}|[^_]*.scss)`, { cwd: directory.src })
-      .reduce((entry, src) => {
-        const name = path.format({
-          dir: path.dirname(src),
-          name: path.parse(src).name,
-        });
+  const getMultipleEntry = () =>
+    glob.sync(`**/@(?(*.)bundle.${javascriptPattern}|[^_]*.scss)`, { cwd: directory.src }).reduce((entry, src) => {
+      const name = path.format({
+        dir: path.dirname(src),
+        name: path.parse(src).name,
+      });
 
-        return Object.assign(entry, { [name]: path.resolve(directory.src, src) });
-      }, {});
-  };
+      return Object.assign(entry, { [name]: path.resolve(directory.src, src) });
+    }, {});
 
   const sourceMap = {
     sourceMap: !isProductionBuild,
@@ -87,11 +84,10 @@ module.exports = () => {
       path: path.resolve(directory.dist),
       filename: `${placeholders}.js`,
       publicPath: isProductionBuild ? directory.publicPath : '/',
-      assetModuleFilename: (pathData) => {
-        return pathData.filename
+      assetModuleFilename: (pathData) =>
+        pathData.filename
           ? path.join(path.relative(directory.src, path.dirname(pathData.filename)), `${placeholders}[ext]`)
-          : '';
-      },
+          : '',
     },
     module: {
       rules: [
@@ -184,8 +180,6 @@ module.exports = () => {
       },
       minimize: isProductionBuild,
       minimizer: [
-        // @ts-ignore
-        // TODO: fix types
         new TerserWebpackPlugin({ extractComments: false }),
         new CssMinimizerWebpackPlugin({
           minimizerOptions: {
@@ -201,26 +195,27 @@ module.exports = () => {
       ],
     },
     plugins: [
-      ...glob.sync('**/[!_]*.pug', { cwd: directory.src }).map((src) => {
-        return new HtmlWebpackPlugin({
-          template: path.join(directory.src, src),
-          filename: path.format({
-            dir: path.dirname(src),
-            name: path.parse(src).name,
-            ext: '.html',
-          }),
-          inject: false,
-          minify: {
-            // HTMLMinifier
-            // @see https://github.com/DanielRuf/html-minifier-terser#options-quick-reference
-            removeStyleLinkTypeAttributes: true,
-            removeScriptTypeAttributes: true,
-            collapseBooleanAttributes: true,
-            collapseWhitespace: isProductionBuild,
-          },
-          isProduction: isProductionBuild,
-        });
-      }),
+      ...glob.sync('**/[!_]*.pug', { cwd: directory.src }).map(
+        (src) =>
+          new HtmlWebpackPlugin({
+            template: path.join(directory.src, src),
+            filename: path.format({
+              dir: path.dirname(src),
+              name: path.parse(src).name,
+              ext: '.html',
+            }),
+            inject: false,
+            minify: {
+              // HTMLMinifier
+              // @see https://github.com/DanielRuf/html-minifier-terser#options-quick-reference
+              removeStyleLinkTypeAttributes: true,
+              removeScriptTypeAttributes: true,
+              collapseBooleanAttributes: true,
+              collapseWhitespace: isProductionBuild,
+            },
+            isProduction: isProductionBuild,
+          })
+      ),
       new MiniCssExtractPlugin({ filename: `${placeholders}.css` }),
       new WebpackRemoveEmptyScriptsPlugin({ verbose: !isProductionBuild }),
       new CopyWebpackPlugin({

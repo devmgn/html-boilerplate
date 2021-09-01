@@ -11,7 +11,7 @@ module.exports = {
     es2021: true,
     browser: true,
   },
-  extends: ['airbnb-base', 'plugin:prettier/recommended', 'prettier'],
+  extends: ['airbnb-base', 'prettier'],
   rules: {
     'no-console': [
       'error',
@@ -24,12 +24,6 @@ module.exports = {
       'always',
       {
         exceptAfterSingleLine: true,
-      },
-    ],
-    'prettier/prettier': [
-      'error',
-      {
-        singleQuote: true,
       },
     ],
     'import/extensions': [
@@ -63,5 +57,4 @@ module.exports = {
       },
     },
   ],
-  ignorePatterns: ['node_modules', '!.*rc.js', directory.dist],
 };
