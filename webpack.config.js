@@ -4,6 +4,7 @@
  */
 
 /** @typedef { import('webpack').Configuration } WebpackConfiguration */
+/** @typedef { import('terser-webpack-plugin') } TeaserPlugin */
 
 const glob = require('glob');
 const path = require('path');
@@ -183,6 +184,8 @@ module.exports = () => {
       },
       minimize: isProductionBuild,
       minimizer: [
+        // @ts-ignore
+        // TODO: fix types
         new TerserWebpackPlugin({ extractComments: false }),
         new CssMinimizerWebpackPlugin({
           minimizerOptions: {
