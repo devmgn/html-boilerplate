@@ -4,7 +4,6 @@
  */
 
 /** @typedef { import('webpack').Configuration } WebpackConfiguration */
-/** @typedef { import('terser-webpack-plugin') } TeaserPlugin */
 
 const glob = require('glob');
 const path = require('path');

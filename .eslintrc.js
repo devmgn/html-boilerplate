@@ -3,8 +3,6 @@
  * @see https://eslint.org
  */
 
-const { directory } = require('./config');
-
 module.exports = {
   root: true,
   env: {
