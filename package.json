@@ -7,17 +7,17 @@
     "directory": {
       "src": "src",
       "dist": "dist",
-      "javascript": "assets/js",
+      "javascriptRoot": "assets/js",
       "publicPath": "/path/to/public/"
     },
-    "resourcesRegExp": "\\.(ico|mp4|webm|woff2?)$",
-    "targetsPatternToCopy": "**/*.{txt,pdf}",
-    "placeholders": "[name]-[contenthash]"
+    "assetResourcesRegExp": "\\.(ico|mp4|webm|woff2?)$",
+    "copyResourcesGlobPattern": "**/*.{txt,pdf}",
+    "assetModuleFilename": "[name]-[contenthash]"
   },
   "scripts": {
     "prepare": "husky install",
     "preinstall": "npx only-allow yarn",
-    "clean": "rm -rf $npm_package_config_directory_dist node_modules yarn.lock yarn-error.log .*lintcache",
+    "clean": "rm -rf $npm_package_config_directory_dist node_modules yarn.lock yarn-error.log .*lintcache .tsconfig.tsbuildinfo",
     "start": "webpack serve --host local-ip --port 3000 --open --static $npm_package_config_directory_src",
     "lint:pug": "prettier \"$npm_package_config_directory_src/**/*.pug\" --write",
     "lint:scss": "stylelint \"$npm_package_config_directory_src/**/*.scss\" --fix --cache && prettier \"$npm_package_config_directory_src/**/*.scss\" --write",
@@ -94,9 +94,9 @@
     "stylelint-prettier": "1.2.0",
     "stylelint-scss": "3.20.1",
     "svgo": "2.5.0",
-    "terser-webpack-plugin": "5.2.2",
+    "terser-webpack-plugin": "5.2.3",
     "typescript": "4.4.2",
-    "webpack": "5.51.2",
+    "webpack": "5.52.0",
     "webpack-cli": "4.8.0",
     "webpack-dev-server": "4.1.0",
     "webpack-remove-empty-scripts": "0.7.1"

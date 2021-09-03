@@ -23,14 +23,14 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 // configurations
-const { directory, javascriptPattern, resourcesRegExp, targetsPatternToCopy, placeholders } = require('./config');
+const { directory, assetResourcesRegExp, copyResourcesGlobPattern, assetModuleFilename } = require('./config');
 
 /** @returns { WebpackConfiguration } */
 module.exports = () => {
   const isProductionBuild = process.env.NODE_ENV === 'production';
 
   const getMultipleEntry = () =>
-    glob.sync(`**/@(?(*.)bundle.${javascriptPattern}|[^_]*.scss)`, { cwd: directory.src }).reduce((entry, src) => {
+    glob.sync(`**/@(?(*.)bundle.[jt]s?(x)|[^_]*.scss)`, { cwd: directory.src }).reduce((entry, src) => {
       const name = path.format({
         dir: path.dirname(src),
         name: path.parse(src).name,
@@ -81,11 +81,11 @@ module.exports = () => {
     entry: getMultipleEntry(),
     output: {
       path: path.resolve(directory.dist),
-      filename: `${placeholders}.js`,
+      filename: `${assetModuleFilename}.js`,
       publicPath: isProductionBuild ? directory.publicPath : '/',
       assetModuleFilename: (pathData) =>
         pathData.filename
-          ? path.join(path.relative(directory.src, path.dirname(pathData.filename)), `${placeholders}[ext]`)
+          ? path.join(path.relative(directory.src, path.dirname(pathData.filename)), `${assetModuleFilename}[ext]`)
           : '',
     },
     module: {
@@ -136,7 +136,7 @@ module.exports = () => {
         },
         // Assets
         {
-          test: resourcesRegExp,
+          test: assetResourcesRegExp,
           type: 'asset/resource',
         },
         // Bitmap images
@@ -161,7 +161,7 @@ module.exports = () => {
     },
     resolve: {
       alias: {
-        '@': [path.resolve(directory.src), path.resolve(directory.src, directory.javascript)],
+        '@': [path.resolve(directory.src), path.resolve(directory.src, directory.javascriptRoot)],
       },
       modules: ['node_modules', directory.src],
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
@@ -172,7 +172,7 @@ module.exports = () => {
           defaultVendors: {
             chunks: 'initial',
             minChunks: 2,
-            name: path.join(directory.javascript, 'vendor'),
+            name: path.join(directory.javascriptRoot, 'vendor'),
             enforce: true,
           },
         },
@@ -215,12 +215,12 @@ module.exports = () => {
             isProduction: isProductionBuild,
           })
       ),
-      new MiniCssExtractPlugin({ filename: `${placeholders}.css` }),
+      new MiniCssExtractPlugin({ filename: `${assetModuleFilename}.css` }),
       new WebpackRemoveEmptyScriptsPlugin({ verbose: !isProductionBuild }),
       new CopyWebpackPlugin({
         patterns: [
           {
-            from: targetsPatternToCopy,
+            from: copyResourcesGlobPattern,
             to: '[path][name][ext]',
             context: directory.src,
             noErrorOnMissing: true,

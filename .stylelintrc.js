@@ -24,6 +24,13 @@ module.exports = {
     'scss/no-duplicate-mixins': true,
     'scss/no-global-function-names': true,
     // stylelint-order
-    'order/order': ['dollar-variables', 'custom-properties', 'declarations', 'at-rules', 'rules'],
+    'order/order': [
+      'dollar-variables',
+      'custom-properties',
+      { type: 'at-rule', hasBlock: false },
+      'declarations',
+      { type: 'at-rule', hasBlock: true },
+      'rules',
+    ],
   },
 };
