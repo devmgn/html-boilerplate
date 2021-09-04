@@ -126,8 +126,9 @@ module.exports = () => {
           test: /\.pug$/i,
           use: [
             {
-              loader: 'pug-loader',
+              loader: 'simple-pug-loader',
               options: {
+                self: true,
                 pretty: true,
                 root: path.resolve(directory.src),
               },

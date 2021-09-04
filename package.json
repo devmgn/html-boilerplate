@@ -37,7 +37,7 @@
     "object-fit-images": "3.2.4"
   },
   "devDependencies": {
-    "@babel/core": "7.15.4",
+    "@babel/core": "7.15.5",
     "@babel/preset-env": "7.15.4",
     "@babel/preset-typescript": "7.15.0",
     "@prettier/plugin-pug": "1.16.5",
@@ -83,9 +83,9 @@
     "postcss-sort-media-queries": "3.11.12",
     "prettier": "2.3.2",
     "pug": "3.0.2",
-    "pug-loader": "2.4.0",
     "sass": "1.39.0",
     "sass-loader": "12.1.0",
+    "simple-pug-loader": "0.2.0",
     "stylelint": "13.13.1",
     "stylelint-config-prettier": "8.0.2",
     "stylelint-config-rational-order": "0.1.2",

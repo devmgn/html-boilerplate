@@ -2,8 +2,11 @@ block variables
 doctype html
 html
   head
-    include _head
+    block head
+      include _head
   body
-    include _header
+    block header
+      include _header
     block content
-    include _footer
+    block footer
+      include _footer

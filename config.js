@@ -13,24 +13,21 @@ const { config } = require('./package.json');
  * Convert path to absolute or relative path
  */
 class ConvertPath {
-  /**
-   * @param { string } targetPath
-   * @returns { string }
-   */
-  static toRelative(targetPath) {
-    const normalizedPath = path.normalize(targetPath);
-    return path.isAbsolute(normalizedPath)
-      ? normalizedPath.replace(path.parse(normalizedPath).root, '')
-      : normalizedPath;
+  /** @param { string } targetPath, @returns { string } */
+  static normalize(targetPath) {
+    return path.normalize(path.join(targetPath, '/'));
   }
 
-  /**
-   * @param { string } targetPath
-   * @returns { string }
-   */
+  /** @param { string } targetPath, @returns { string } */
+  static toRelative(targetPath) {
+    const normalizedPath = ConvertPath.normalize(targetPath);
+    return path.isAbsolute(normalizedPath) ? normalizedPath.replace('/', '') : normalizedPath;
+  }
+
+  /** @param { string } targetPath, @returns { string } */
   static toAbsolute(targetPath) {
-    const normalizedPath = `${path.normalize(targetPath).replace(new RegExp(`${path.sep}$`), '')}${path.sep}`;
-    return path.isAbsolute(normalizedPath) ? normalizedPath : path.join(path.sep, normalizedPath);
+    const normalizedPath = ConvertPath.normalize(targetPath);
+    return path.isAbsolute(normalizedPath) ? normalizedPath : path.join('/', normalizedPath);
   }
 }
 
