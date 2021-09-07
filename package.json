@@ -22,7 +22,7 @@
     "lint:pug": "prettier \"$npm_package_config_directory_src/**/*.pug\" --write",
     "lint:scss": "stylelint \"$npm_package_config_directory_src/**/*.scss\" --fix --cache && prettier \"$npm_package_config_directory_src/**/*.scss\" --write",
     "lint:javascript": "eslint \"$npm_package_config_directory_src/**/*.[jt]s?(x)\" --fix --cache && prettier \"$npm_package_config_directory_src/**/*.[jt]s?(x)\" --write",
-    "lint": "yarn lint:pug & yarn lint:scss & yarn lint:javascript",
+    "lint": "yarn lint:pug & yarn lint:scss & yarn lint:javascript & yarn tsc",
     "prebuild": "yarn lint",
     "build": "NODE_ENV=production webpack"
   },
@@ -32,7 +32,7 @@
     "*.[jt]s?(x)": "yarn lint:javascript"
   },
   "dependencies": {
-    "core-js": "3.17.2",
+    "core-js": "3.17.3",
     "dom4": "2.1.6",
     "object-fit-images": "3.2.4"
   },
@@ -51,8 +51,8 @@
     "@types/mini-css-extract-plugin": "2.2.0",
     "@types/object-fit-images": "3.2.2",
     "@types/sass": "1.16.1",
-    "@typescript-eslint/eslint-plugin": "4.30.0",
-    "@typescript-eslint/parser": "4.30.0",
+    "@typescript-eslint/eslint-plugin": "4.31.0",
+    "@typescript-eslint/parser": "4.31.0",
     "autoprefixer": "10.3.4",
     "babel-loader": "8.2.2",
     "clean-webpack-plugin": "4.0.0",
@@ -98,7 +98,7 @@
     "typescript": "4.4.2",
     "webpack": "5.52.0",
     "webpack-cli": "4.8.0",
-    "webpack-dev-server": "4.1.0",
+    "webpack-dev-server": "4.1.1",
     "webpack-remove-empty-scripts": "0.7.1"
   }
 }
