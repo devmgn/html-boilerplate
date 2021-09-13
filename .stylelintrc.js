@@ -27,9 +27,9 @@ module.exports = {
     'order/order': [
       'dollar-variables',
       'custom-properties',
-      { type: 'at-rule', hasBlock: false },
+      { type: 'at-rule', name: 'include', hasBlock: false },
       'declarations',
-      { type: 'at-rule', hasBlock: true },
+      { type: 'at-rule', name: 'include', hasBlock: true },
       'rules',
     ],
   },
