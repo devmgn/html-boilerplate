@@ -62,8 +62,6 @@ module.exports = () => {
             name: 'preset-default',
             params: {
               overrides: {
-                removeViewBox: false,
-                removeDimensions: true,
                 removeAttrs: {
                   params: { attrs: ['data.*'] },
                 },
