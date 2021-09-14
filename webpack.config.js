@@ -23,7 +23,7 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 // configurations
-const { directory, assetResourcesRegExp, copyResourcesGlobPattern, assetModuleFilename } = require('./config');
+const { directory, alias, assetResourcesRegExp, copyResourcesGlobPattern, assetModuleFilename } = require('./config');
 
 /** @returns { WebpackConfiguration } */
 module.exports = () => {
@@ -36,7 +36,7 @@ module.exports = () => {
         name: path.parse(src).name,
       });
 
-      return Object.assign(entry, { [name]: path.resolve(directory.src, src) });
+      return { ...entry, ...{ [name]: path.resolve(directory.src, src) } };
     }, {});
 
   const sourceMap = {
@@ -159,9 +159,7 @@ module.exports = () => {
       ],
     },
     resolve: {
-      alias: {
-        '@': [path.resolve(directory.src), path.resolve(directory.src, directory.javascriptRoot)],
-      },
+      alias,
       modules: ['node_modules', directory.src],
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
     },

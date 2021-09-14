@@ -2,7 +2,7 @@
  * Basic configurations
  */
 
-/** @typedef { { src: string; dist: string; javascriptRoot: string; publicPath: string; } } Directory */
+/** @typedef { { src: string; dist: string; publicPath: string; javascriptRoot: string; } } Directory */
 
 const path = require('path');
 // @ts-ignore
@@ -36,16 +36,22 @@ module.exports = {
   directory: {
     src: ConvertPath.toRelative(config.directory.src),
     dist: ConvertPath.toRelative(config.directory.dist),
-    javascriptRoot: ConvertPath.toRelative(config.directory.javascriptRoot),
     publicPath: ConvertPath.toAbsolute(config.directory.publicPath),
+    javascriptRoot: ConvertPath.toRelative(config.directory.javascriptRoot),
   },
+
+  /** @type { { [key: string]: string[] } } */
+  alias: Object.keys(config.alias).reduce((aliases, key) => {
+    const resolvedPaths = config.alias[key].map((/** @type {string} */ alias) => ConvertPath.toRelative(alias));
+    return { ...aliases, ...{ [key]: resolvedPaths } };
+  }, {}),
+
+  /** @type { string } */
+  assetModuleFilename: config.assetModuleFilename,
 
   /** @type { RegExp } */
   assetResourcesRegExp: new RegExp(config.assetResourcesRegExp, 'i'),
 
   /** @type { string } */
   copyResourcesGlobPattern: config.copyResourcesGlobPattern,
-
-  /** @type { string } */
-  assetModuleFilename: config.assetModuleFilename,
 };
