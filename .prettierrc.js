@@ -21,6 +21,7 @@ module.exports = {
       options: {
         parser: 'pug',
         pugAttributeSeparator: 'as-needed',
+        pugIdNotation: 'as-is',
       },
     },
   ],
