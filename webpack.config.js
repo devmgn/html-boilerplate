@@ -27,21 +27,19 @@ const { directory, alias, assetResourcesRegExp, copyResourcesGlobPattern, assetM
 
 /** @returns { WebpackConfiguration } */
 module.exports = () => {
-  const isProductionBuild = process.env.NODE_ENV === 'production';
-
-  const getMultipleEntry = () =>
-    glob.sync(`**/@(?(*.)bundle.[jt]s?(x)|[^_]*.scss)`, { cwd: directory.src }).reduce((entry, src) => {
+  const entry = () =>
+    glob.sync(`**/@(?(*.)bundle.[jt]s?(x)|[^_]*.scss)`, { cwd: directory.src }).reduce((entries, src) => {
       const name = path.format({
         dir: path.dirname(src),
         name: path.parse(src).name,
       });
 
-      return { ...entry, ...{ [name]: path.resolve(directory.src, src) } };
+      return { ...entries, ...{ [name]: path.resolve(directory.src, src) } };
     }, {});
 
-  const sourceMap = {
-    sourceMap: !isProductionBuild,
-  };
+  const isProductionBuild = process.env.NODE_ENV === 'production';
+  const publicPath = isProductionBuild ? directory.publicPath : '/';
+  const sourceMap = !isProductionBuild;
 
   const assetModuleOptions = {
     type: 'asset',
@@ -76,11 +74,11 @@ module.exports = () => {
   /** @type { WebpackConfiguration } */
   const config = {
     mode: isProductionBuild ? 'production' : 'development',
-    entry: getMultipleEntry(),
+    entry,
     output: {
       path: path.resolve(directory.dist),
       filename: `${assetModuleFilename}.js`,
-      publicPath: isProductionBuild ? directory.publicPath : '/',
+      publicPath,
       assetModuleFilename: (pathData) =>
         pathData.filename
           ? path.join(path.relative(directory.src, path.dirname(pathData.filename)), `${assetModuleFilename}[ext]`)
@@ -104,16 +102,16 @@ module.exports = () => {
             MiniCssExtractPlugin.loader,
             {
               loader: 'css-loader',
-              options: { ...sourceMap },
+              options: { sourceMap },
             },
             {
               loader: 'postcss-loader',
-              options: { ...sourceMap },
+              options: { sourceMap },
             },
             {
               loader: 'sass-loader',
               options: {
-                ...sourceMap,
+                sourceMap,
                 implementation: sass,
               },
             },
@@ -209,7 +207,8 @@ module.exports = () => {
               collapseBooleanAttributes: true,
               collapseWhitespace: isProductionBuild,
             },
-            isProduction: isProductionBuild,
+            publicPath,
+            isProductionBuild,
           })
       ),
       new MiniCssExtractPlugin({ filename: `${assetModuleFilename}.css` }),

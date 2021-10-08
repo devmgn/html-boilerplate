@@ -3,13 +3,15 @@ meta(name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale
 meta(http-equiv="X-UA-Compatible" content="IE=edge")
 title= title
 meta(name="description" content=description)
+- const chunks = [...self.compilation.chunks];
+- const publicPath = self.htmlWebpackPlugin.options.publicPath;
 if styles
   each style in styles
-    - const stylePath = self.htmlWebpackPlugin.files.css.find((src) => src.includes(style.replace('.css', '')));
-    if stylePath
-      link(rel="stylesheet" href=stylePath)
+    - const files = chunks.filter((chunk) => style.includes(chunk.name))[0]?.files;
+    if files
+      link(rel="stylesheet" href=`${publicPath}${[...files][0]}`)
 if scripts
   each script in scripts
-    - const scriptPath = self.htmlWebpackPlugin.files.js.find((src) => src.includes(script.replace('.js', '')));
-    if scriptPath
-      script(src=scriptPath defer)
+    - const files = chunks.filter((chunk) => script.includes(chunk.name))[0]?.files;
+    if files
+      script(src=`${publicPath}${[...files][0]}` defer)
