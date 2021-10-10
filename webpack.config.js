@@ -20,7 +20,6 @@ const ImageMinimizerWebpackPlugin = require('image-minimizer-webpack-plugin');
 const WebpackRemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 // configurations
 const { directory, alias, assetResourcesRegExp, copyResourcesGlobPattern, assetModuleFilename } = require('./config');
@@ -83,6 +82,7 @@ module.exports = () => {
         pathData.filename
           ? path.join(path.relative(directory.src, path.dirname(pathData.filename)), `${assetModuleFilename}[ext]`)
           : '',
+      clean: true,
     },
     module: {
       rules: [
@@ -223,7 +223,6 @@ module.exports = () => {
           },
         ],
       }),
-      new CleanWebpackPlugin(),
       new FriendlyErrorsWebpackPlugin(),
     ],
     devtool: !isProductionBuild && 'inline-source-map',
