@@ -1,6 +1,6 @@
-//
-// Visually hidden mixin
-//
+///
+/// Visually hidden mixin
+///
 @mixin visually-hidden() {
   position: absolute;
   width: 1px;

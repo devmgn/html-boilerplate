@@ -1,6 +1,6 @@
-//
-// Clear floated content
-//
+///
+/// Clear floated content
+///
 @mixin clearfix() {
   &::after {
     display: table;
