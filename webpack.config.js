@@ -48,25 +48,28 @@ module.exports = () => {
   };
 
   const imageMinimizerWebpackPlugin = new ImageMinimizerWebpackPlugin({
-    minimizerOptions: {
-      plugins: [
-        ['mozjpeg', { quality: 65 }],
-        'gifsicle',
-        'pngquant',
-        [
-          'svgo',
-          {
-            name: 'preset-default',
-            params: {
-              overrides: {
-                removeAttrs: {
-                  params: { attrs: ['data.*'] },
+    minimizer: {
+      implementation: ImageMinimizerWebpackPlugin.imageminMinify,
+      options: {
+        plugins: [
+          ['mozjpeg', { quality: 65 }],
+          'gifsicle',
+          'pngquant',
+          [
+            'svgo',
+            {
+              name: 'preset-default',
+              params: {
+                overrides: {
+                  removeAttrs: {
+                    params: { attrs: ['data.*'] },
+                  },
                 },
               },
             },
-          },
+          ],
         ],
-      ],
+      },
     },
   });
 
