@@ -38,13 +38,13 @@ Default resolved path: `assets/js` \*`@` is the alias of the resolved path
 #### Normal image
 
 ```pug
-img(src=require('assets/images/foo.jpg'))
+img(src=require("assets/images/foo.jpg"))
 ```
 
 ##### inline SVG
 
 ```pug
-!= require('path/to/file.svg?inline')
+!= require("path/to/file.svg?inline")
 ```
 
 #### SCSS

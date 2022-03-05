@@ -35,7 +35,7 @@
   font-family: $font-family-base;
   line-height: 1;
   overflow-wrap: break-word;
-  text-rendering: optimizeSpeed;
+  text-rendering: optimizespeed;
   -webkit-tap-highlight-color: transparent; // 1
   -webkit-font-smoothing: antialiased; // 2
   -moz-osx-font-smoothing: grayscale; // 2
@@ -65,6 +65,10 @@
 // ==========================================================================
 // Inline text semantics
 // ==========================================================================
+
+:where(a) {
+  cursor: revert;
+}
 
 :where(code, kbd, samp) {
   font-family: $font-family-monospace;
@@ -101,7 +105,7 @@
 :where(svg) {
   vertical-align: middle;
   &:not([fill]) {
-    fill: currentColor; // 1
+    fill: currentcolor; // 1
   }
 }
 
