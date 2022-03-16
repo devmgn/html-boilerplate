@@ -11,6 +11,7 @@ module.exports = {
       options: {
         singleQuote: true,
       },
+      singleAttributePerLine: true,
     },
     /**
      * @prettier/plugin-pug
