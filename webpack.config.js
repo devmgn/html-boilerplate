@@ -40,38 +40,17 @@ module.exports = () => {
   const publicPath = isProductionBuild ? directory.publicPath : '/';
   const sourceMap = !isProductionBuild;
 
-  const assetModuleOptions = {
+  const assetModuleOption = {
     type: 'asset',
     parser: {
       dataUrlCondition: { maxSize: 1024 / 4 },
     },
   };
 
-  const imageMinimizerWebpackPlugin = new ImageMinimizerWebpackPlugin({
-    minimizer: {
-      implementation: ImageMinimizerWebpackPlugin.imageminMinify,
-      options: {
-        plugins: [
-          ['mozjpeg', { quality: 65 }],
-          'gifsicle',
-          'pngquant',
-          [
-            'svgo',
-            {
-              name: 'preset-default',
-              params: {
-                overrides: {
-                  removeAttrs: {
-                    params: { attrs: ['data.*'] },
-                  },
-                },
-              },
-            },
-          ],
-        ],
-      },
-    },
-  });
+  const inlineAssetModuleOption = {
+    resourceQuery: /inline/,
+    type: 'asset/inline',
+  };
 
   /** @type { WebpackConfiguration } */
   const config = {
@@ -142,19 +121,18 @@ module.exports = () => {
         // Bitmap images
         {
           test: /\.(jpe?g|png|gif)$/i,
-          ...assetModuleOptions,
+          oneOf: [{ ...inlineAssetModuleOption }, { ...assetModuleOption }],
         },
         // svg
         {
           test: /\.svg$/i,
           oneOf: [
-            // inline svg
             {
-              resourceQuery: /inline/,
+              resourceQuery: /include/,
               type: 'asset/source',
             },
-            // default
-            { ...assetModuleOptions },
+            { ...inlineAssetModuleOption },
+            { ...assetModuleOption },
           ],
         },
       ],
@@ -188,6 +166,66 @@ module.exports = () => {
               },
             ],
           },
+        }),
+        new ImageMinimizerWebpackPlugin({
+          test: /\.(svg|gif)$/i,
+          minimizer: {
+            implementation: ImageMinimizerWebpackPlugin.imageminMinify,
+            options: {
+              plugins: [
+                'gifsicle',
+                [
+                  'svgo',
+                  {
+                    plugins: [
+                      {
+                        name: 'preset-default',
+                        params: {
+                          overrides: {
+                            removeUnknownsAndDefaults: {
+                              keepDataAttrs: false,
+                            },
+                          },
+                        },
+                      },
+                    ],
+                  },
+                ],
+              ],
+            },
+          },
+        }),
+        new ImageMinimizerWebpackPlugin({
+          test: /\.(jpe?g|png)$/i,
+          minimizer: {
+            implementation: ImageMinimizerWebpackPlugin.squooshMinify,
+            options: {
+              encodeOptions: {
+                mozjpeg: {},
+                oxipng: {},
+              },
+            },
+          },
+          generator: [
+            {
+              preset: 'webp',
+              implementation: ImageMinimizerWebpackPlugin.squooshGenerate,
+              options: {
+                encodeOptions: {
+                  webp: {},
+                },
+              },
+            },
+            {
+              preset: 'avif',
+              implementation: ImageMinimizerWebpackPlugin.squooshGenerate,
+              options: {
+                encodeOptions: {
+                  avif: {},
+                },
+              },
+            },
+          ],
         }),
       ],
     },
@@ -229,15 +267,14 @@ module.exports = () => {
       new FriendlyErrorsWebpackPlugin(),
     ],
     devtool: !isProductionBuild && 'inline-source-map',
-    cache: {
-      type: 'filesystem',
-      buildDependencies: { config: [__filename] },
-    },
+    cache: isProductionBuild
+      ? false
+      : {
+          type: 'filesystem',
+          buildDependencies: { config: [__filename] },
+          allowCollectingMemory: true,
+        },
   };
-
-  if (isProductionBuild && config.plugins) {
-    config.plugins.push(imageMinimizerWebpackPlugin);
-  }
 
   return config;
 };

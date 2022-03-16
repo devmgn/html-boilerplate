@@ -21,7 +21,7 @@ $ yarn build
 
 ## Resolving path
 
-The following default values can be changed by editing `config.directory` in `package.json`
+The following default values can be changed by editing `config. directory` in `package.json`
 
 ### Typescript
 
@@ -31,26 +31,42 @@ import foo as bar from '@/baz';
 
 Default resolved path: `assets/js` \*`@` is the alias of the resolved path
 
+#### CSS
+
+```css
+.foo {
+  background-image: url(assets/images/foo.jpg);
+}
+```
+
 ### Images
 
-#### pug
-
-#### Normal image
+#### default
 
 ```pug
 img(src=require("assets/images/foo.jpg"))
 ```
 
-##### inline SVG
+##### data-uri
 
 ```pug
-!= require("path/to/file.svg?inline")
+img(src=require("path/to/file.jpg?inline"))
 ```
 
-#### SCSS
+##### raw (for svg)
 
-```scss
-.foo {
-  background-image: url(assets/images/foo.jpg);
-}
+```pug
+!= require("path/to/file.svg?include")
+```
+
+##### webp
+
+```pug
+img(src=require("path/to/file.jpg?as=webp"))
+```
+
+##### webp
+
+```pug
+img(src=require("path/to/file.jpg?as=avif"))
 ```

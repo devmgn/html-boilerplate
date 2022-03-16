@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "license": "UNLICENSED",
   "private": true,
+  "engines": {
+    "node": "^12.5.0 || ^14.0.0 || ^16.0.0"
+  },
   "config": {
     "directory": {
       "src": "src",
@@ -43,10 +46,11 @@
     "dom4": "2.1.6"
   },
   "devDependencies": {
-    "@babel/core": "7.17.7",
+    "@babel/core": "7.17.8",
     "@babel/preset-env": "7.16.11",
     "@babel/preset-typescript": "7.16.7",
     "@prettier/plugin-pug": "1.19.3",
+    "@squoosh/lib": "0.4.0",
     "@types/dom4": "2.0.2",
     "@types/friendly-errors-webpack-plugin": "0.1.4",
     "@types/glob": "7.2.0",
@@ -71,10 +75,8 @@
     "image-minimizer-webpack-plugin": "3.2.3",
     "imagemin": "8.0.1",
     "imagemin-gifsicle": "7.0.0",
-    "imagemin-mozjpeg": "10.0.0",
-    "imagemin-pngquant": "9.0.2",
     "imagemin-svgo": "10.0.1",
-    "lint-staged": "12.3.6",
+    "lint-staged": "12.3.7",
     "mini-css-extract-plugin": "2.6.0",
     "postcss": "8.4.12",
     "postcss-flexbugs-fixes": "5.0.2",
