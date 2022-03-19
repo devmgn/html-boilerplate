@@ -20,24 +20,25 @@ const ImageMinimizerWebpackPlugin = require('image-minimizer-webpack-plugin');
 const WebpackRemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
 
 // configurations
-const { directory, alias, assetResourcesRegExp, copyResourcesGlobPattern, assetModuleFilename } = require('./config');
+const { paths, assetResourcesRegExp, copyResourcesGlobPattern, assetModuleFilename } = require('./config');
 
 /** @returns { WebpackConfiguration } */
 module.exports = () => {
   const entry = () =>
-    glob.sync(`**/@(?(*.)bundle.[jt]s?(x)|[^_]*.scss)`, { cwd: directory.src }).reduce((entries, src) => {
+    glob.sync(`**/@(?(*.)bundle.[jt]s?(x)|[^_]*.scss)`, { cwd: paths.src }).reduce((entries, src) => {
       const name = path.format({
         dir: path.dirname(src),
         name: path.parse(src).name,
       });
 
-      return { ...entries, ...{ [name]: path.resolve(directory.src, src) } };
+      return { ...entries, ...{ [name]: path.resolve(paths.src, src) } };
     }, {});
 
   const isProductionBuild = process.env.NODE_ENV === 'production';
-  const publicPath = isProductionBuild ? directory.publicPath : '/';
+  const publicPath = isProductionBuild ? paths.publicPath : '/';
   const sourceMap = !isProductionBuild;
 
   const assetModuleOption = {
@@ -57,12 +58,12 @@ module.exports = () => {
     mode: isProductionBuild ? 'production' : 'development',
     entry,
     output: {
-      path: path.resolve(directory.dist),
+      path: path.resolve(paths.dist),
       filename: `${assetModuleFilename}.js`,
       publicPath,
       assetModuleFilename: (pathData) =>
         pathData.filename
-          ? path.join(path.relative(directory.src, path.dirname(pathData.filename)), `${assetModuleFilename}[ext]`)
+          ? path.join(path.relative(paths.src, path.dirname(pathData.filename)), `${assetModuleFilename}[ext]`)
           : '',
       clean: true,
     },
@@ -108,7 +109,7 @@ module.exports = () => {
               options: {
                 self: true,
                 pretty: true,
-                root: path.resolve(directory.src),
+                root: path.resolve(paths.src),
               },
             },
           ],
@@ -138,9 +139,12 @@ module.exports = () => {
       ],
     },
     resolve: {
-      alias,
-      modules: ['node_modules', directory.src],
+      modules: ['node_modules', paths.src],
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      alias: {
+        '@': path.resolve(__dirname, 'src/assets/css'),
+      },
+      plugins: [new TsconfigPathsPlugin()],
     },
     optimization: {
       splitChunks: {
@@ -148,7 +152,7 @@ module.exports = () => {
           defaultVendors: {
             chunks: 'initial',
             minChunks: 2,
-            name: path.join(directory.javascriptRoot, 'vendor'),
+            name: path.join(paths.javascriptRoot, 'vendor'),
             enforce: true,
           },
         },
@@ -230,10 +234,10 @@ module.exports = () => {
       ],
     },
     plugins: [
-      ...glob.sync('**/[!_]*.pug', { cwd: directory.src }).map(
+      ...glob.sync('**/[!_]*.pug', { cwd: paths.src }).map(
         (src) =>
           new HtmlWebpackPlugin({
-            template: path.join(directory.src, src),
+            template: path.join(paths.src, src),
             filename: path.format({
               dir: path.dirname(src),
               name: path.parse(src).name,
@@ -259,7 +263,7 @@ module.exports = () => {
           {
             from: copyResourcesGlobPattern,
             to: '[path][name][ext]',
-            context: directory.src,
+            context: paths.src,
             noErrorOnMissing: true,
           },
         ],

@@ -2,8 +2,6 @@
  * Basic configurations
  */
 
-/** @typedef { { src: string; dist: string; publicPath: string; javascriptRoot: string; } } Directory */
-
 const path = require('path');
 // @ts-ignore
 // eslint-disable-next-line import/extensions
@@ -32,19 +30,13 @@ class ConvertPath {
 }
 
 module.exports = {
-  /** @type { Directory } */
-  directory: {
-    src: ConvertPath.toRelative(config.directory.src),
-    dist: ConvertPath.toRelative(config.directory.dist),
-    publicPath: ConvertPath.toAbsolute(config.directory.publicPath),
-    javascriptRoot: ConvertPath.toRelative(config.directory.javascriptRoot),
+  /** @type { { src: string; dist: string; publicPath: string; javascriptRoot: string; } } */
+  paths: {
+    src: ConvertPath.toRelative(config.paths.src),
+    dist: ConvertPath.toRelative(config.paths.dist),
+    publicPath: ConvertPath.toAbsolute(config.paths.publicPath),
+    javascriptRoot: ConvertPath.toRelative(config.paths.javascriptRoot),
   },
-
-  /** @type { { [key: string]: string[] } } */
-  alias: Object.keys(config.alias).reduce((aliases, key) => {
-    const resolvedPaths = config.alias[key].map((/** @type {string} */ alias) => ConvertPath.toRelative(alias));
-    return { ...aliases, ...{ [key]: resolvedPaths } };
-  }, {}),
 
   /** @type { string } */
   assetModuleFilename: config.assetModuleFilename,
