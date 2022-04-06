@@ -1,5 +1,5 @@
 {
-  "name": "html-sandbox",
+  "name": "html-boilerplate",
   "version": "0.0.0",
   "license": "UNLICENSED",
   "private": true,
@@ -35,28 +35,26 @@
     "*.[jt]s?(x)": "yarn lint:javascript"
   },
   "dependencies": {
-    "core-js": "3.21.1",
-    "dom4": "2.1.6"
+    "core-js": "3.21.1"
   },
   "devDependencies": {
-    "@babel/core": "7.17.8",
+    "@babel/core": "7.17.9",
     "@babel/preset-env": "7.16.11",
     "@babel/preset-typescript": "7.16.7",
     "@prettier/plugin-pug": "1.20.1",
     "@squoosh/lib": "0.4.0",
-    "@types/dom4": "2.0.2",
     "@types/friendly-errors-webpack-plugin": "0.1.4",
     "@types/glob": "7.2.0",
     "@types/html-webpack-plugin": "3.2.6",
     "@types/sass": "1.43.1",
-    "@typescript-eslint/eslint-plugin": "5.18.0",
-    "@typescript-eslint/parser": "5.18.0",
+    "@typescript-eslint/eslint-plugin": "5.19.0",
+    "@typescript-eslint/parser": "5.19.0",
     "autoprefixer": "10.4.4",
     "babel-loader": "8.2.4",
     "copy-webpack-plugin": "10.2.4",
     "css-loader": "6.7.1",
     "css-minimizer-webpack-plugin": "3.4.1",
-    "eslint": "8.12.0",
+    "eslint": "8.13.0",
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-import-resolver-typescript": "2.7.1",
@@ -77,7 +75,7 @@
     "postcss-sort-media-queries": "4.2.1",
     "prettier": "2.6.2",
     "pug": "3.0.2",
-    "sass": "1.49.11",
+    "sass": "1.50.0",
     "sass-loader": "12.6.0",
     "simple-pug-loader": "0.2.1",
     "stylelint": "14.6.1",
@@ -91,9 +89,9 @@
     "terser-webpack-plugin": "5.3.1",
     "tsconfig-paths-webpack-plugin": "3.5.2",
     "typescript": "4.6.3",
-    "webpack": "5.71.0",
+    "webpack": "5.72.0",
     "webpack-cli": "4.9.2",
-    "webpack-dev-server": "4.8.0",
-    "webpack-remove-empty-scripts": "0.7.3"
+    "webpack-dev-server": "4.8.1",
+    "webpack-remove-empty-scripts": "0.8.0"
   }
 }

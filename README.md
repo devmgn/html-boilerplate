@@ -65,7 +65,7 @@ img(src=require("path/to/file.jpg?inline"))
 img(src=require("path/to/file.jpg?as=webp"))
 ```
 
-##### webp
+##### avif
 
 ```pug
 img(src=require("path/to/file.jpg?as=avif"))
