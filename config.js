@@ -7,6 +7,8 @@ const path = require('path');
 // eslint-disable-next-line import/extensions
 const { config } = require('./package.json');
 
+const { paths, assetModuleFilename, assetResourcesRegExp, copyResourcesGlobPattern } = config;
+
 /**
  * Convert path to absolute or relative path
  */
@@ -30,20 +32,21 @@ class ConvertPath {
 }
 
 module.exports = {
-  /** @type { { src: string; dist: string; publicPath: string; javascriptRoot: string; } } */
+  /** @type { { src: string; dist: string; publicPath: string; cssRoot: string;javascriptRoot: string; } } */
   paths: {
-    src: ConvertPath.toRelative(config.paths.src),
-    dist: ConvertPath.toRelative(config.paths.dist),
-    publicPath: ConvertPath.toAbsolute(config.paths.publicPath),
-    javascriptRoot: ConvertPath.toRelative(config.paths.javascriptRoot),
+    src: ConvertPath.toRelative(paths.src),
+    dist: ConvertPath.toRelative(paths.dist),
+    publicPath: ConvertPath.toAbsolute(paths.publicPath),
+    cssRoot: ConvertPath.toRelative(paths.cssRoot),
+    javascriptRoot: ConvertPath.toRelative(paths.javascriptRoot),
   },
 
   /** @type { string } */
-  assetModuleFilename: config.assetModuleFilename,
+  assetModuleFilename,
 
   /** @type { RegExp } */
-  assetResourcesRegExp: new RegExp(config.assetResourcesRegExp, 'i'),
+  assetResourcesRegExp: new RegExp(assetResourcesRegExp, 'i'),
 
   /** @type { string } */
-  copyResourcesGlobPattern: config.copyResourcesGlobPattern,
+  copyResourcesGlobPattern,
 };

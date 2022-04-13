@@ -10,7 +10,6 @@ const path = require('path');
 const sass = require('sass');
 
 // webpack plugins
-const TerserWebpackPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
@@ -139,10 +138,10 @@ module.exports = () => {
       ],
     },
     resolve: {
-      modules: ['node_modules', paths.src],
-      extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      modules: ['...', paths.src],
+      extensions: ['...', '.jsx', '.ts', '.tsx'],
       alias: {
-        '@': path.resolve(__dirname, 'src/assets/css'),
+        '@': paths.cssRoot,
       },
       plugins: [new TsconfigPathsPlugin()],
     },
@@ -157,9 +156,8 @@ module.exports = () => {
           },
         },
       },
-      minimize: isProductionBuild,
       minimizer: [
-        new TerserWebpackPlugin({ extractComments: false }),
+        '...',
         new CssMinimizerWebpackPlugin({
           minimizerOptions: {
             preset: [
@@ -276,7 +274,6 @@ module.exports = () => {
       : {
           type: 'filesystem',
           buildDependencies: { config: [__filename] },
-          allowCollectingMemory: true,
         },
   };
 

@@ -6,17 +6,21 @@
 module.exports = {
   extends: ['stylelint-config-recommended-scss', 'stylelint-prettier/recommended', 'stylelint-config-rational-order'],
   rules: {
-    // Limit language features
-    'length-zero-no-unit': true,
+    // Avoid errors
+    'function-no-unknown': true,
     // Stylistic issues
+    'value-keyword-case': 'lower',
     'function-name-case': 'lower',
+    'selector-type-case': 'lower',
+    // Enforce conventions
+    'length-zero-no-unit': true,
     'function-url-quotes': 'never',
-    'string-quotes': 'double',
     'shorthand-property-no-redundant-values': true,
     'declaration-block-no-redundant-longhand-properties': true,
+    'selector-not-notation': 'complex',
     'selector-pseudo-element-colon-notation': 'double',
-    'value-keyword-case': 'lower',
-    'selector-type-case': 'lower',
+    // Handled by pretty printers
+    'string-quotes': 'double',
     // stylelint-scss
     'scss/at-mixin-argumentless-call-parentheses': 'never',
     'scss/at-rule-conditional-no-parentheses': true,
