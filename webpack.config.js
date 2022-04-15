@@ -138,10 +138,10 @@ module.exports = () => {
       ],
     },
     resolve: {
-      modules: ['node_modules', paths.src],
-      extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      modules: ['...', paths.src],
+      extensions: ['...', '.jsx', '.ts', '.tsx'],
       alias: {
-        '@': path.resolve(__dirname, 'src/assets/css'),
+        '@': paths.cssRoot,
       },
       plugins: [new TsconfigPathsPlugin()],
     },

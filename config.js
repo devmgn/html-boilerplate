@@ -32,11 +32,12 @@ class ConvertPath {
 }
 
 module.exports = {
-  /** @type { { src: string; dist: string; publicPath: string; javascriptRoot: string; } } */
+  /** @type { { src: string; dist: string; publicPath: string; cssRoot: string;javascriptRoot: string; } } */
   paths: {
     src: ConvertPath.toRelative(paths.src),
     dist: ConvertPath.toRelative(paths.dist),
     publicPath: ConvertPath.toAbsolute(paths.publicPath),
+    cssRoot: ConvertPath.toRelative(paths.cssRoot),
     javascriptRoot: ConvertPath.toRelative(paths.javascriptRoot),
   },
 
