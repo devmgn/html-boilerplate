@@ -6,8 +6,6 @@
 module.exports = {
   extends: ['stylelint-config-recommended-scss', 'stylelint-prettier/recommended', 'stylelint-config-rational-order'],
   rules: {
-    // Avoid errors
-    'function-no-unknown': true,
     // Stylistic issues
     'value-keyword-case': 'lower',
     'function-name-case': 'lower',
