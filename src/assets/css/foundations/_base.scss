@@ -10,7 +10,7 @@
 // Main root
 // ==========================================================================
 
-*:where(:not(iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+*:where(:not(html, iframe, canvas, img, svg, video, svg *, symbol *)) {
   all: unset;
   display: revert;
 }
