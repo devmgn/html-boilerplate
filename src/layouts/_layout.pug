@@ -4,6 +4,8 @@ html
   head
     block head
       include _head
+    block assets
+      link(rel="stylesheet" href=require("assets/css/style.scss"))
   body
     block header
       include _header

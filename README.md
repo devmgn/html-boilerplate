@@ -1,4 +1,4 @@
-# HTML SANDBOX
+# HTML BOILERPLATE
 
 ## Requirements
 
@@ -56,7 +56,7 @@ img(src=require("path/to/file.jpg?inline"))
 ##### raw (for svg)
 
 ```pug
-!= require("path/to/file.svg?include")
+img(src=require("path/to/file.svg?include")
 ```
 
 ##### webp

@@ -10,16 +10,13 @@ const path = require('path');
 const sass = require('sass');
 
 // webpack plugins
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
 const ImageMinimizerWebpackPlugin = require('image-minimizer-webpack-plugin');
-// @ts-ignore
-// TODO: fix types
-const WebpackRemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
+// @ts-ignore
+const PugPlugin = require('pug-plugin');
 
 // configurations
 const { paths, assetResourcesRegExp, copyResourcesGlobPattern, assetModuleFilename } = require('./config');
@@ -27,7 +24,7 @@ const { paths, assetResourcesRegExp, copyResourcesGlobPattern, assetModuleFilena
 /** @returns { WebpackConfiguration } */
 module.exports = () => {
   const entry = () =>
-    glob.sync(`**/@(?(*.)bundle.[jt]s?(x)|[^_]*.scss)`, { cwd: paths.src }).reduce((entries, src) => {
+    glob.sync(`**/[^_]*.pug`, { cwd: paths.src }).reduce((entries, src) => {
       const name = path.format({
         dir: path.dirname(src),
         name: path.parse(src).name,
@@ -55,15 +52,13 @@ module.exports = () => {
   /** @type { WebpackConfiguration } */
   const config = {
     mode: isProductionBuild ? 'production' : 'development',
-    entry,
+    entry: entry(),
     output: {
       path: path.resolve(paths.dist),
-      filename: `${assetModuleFilename}.js`,
+      filename: `${paths.javascriptRoot}/${assetModuleFilename}.js`,
       publicPath,
-      assetModuleFilename: (pathData) =>
-        pathData.filename
-          ? path.join(path.relative(paths.src, path.dirname(pathData.filename)), `${assetModuleFilename}[ext]`)
-          : '',
+      assetModuleFilename: ({ filename }) =>
+        filename ? path.join(path.relative(paths.src, path.dirname(filename)), `${assetModuleFilename}[ext]`) : '',
       clean: true,
     },
     module: {
@@ -81,7 +76,6 @@ module.exports = () => {
         {
           test: /\.scss$/i,
           use: [
-            MiniCssExtractPlugin.loader,
             {
               loader: 'css-loader',
               options: { sourceMap },
@@ -104,11 +98,9 @@ module.exports = () => {
           test: /\.pug$/i,
           use: [
             {
-              loader: 'simple-pug-loader',
+              loader: PugPlugin.loader,
               options: {
-                self: true,
-                pretty: true,
-                root: path.resolve(paths.src),
+                method: 'render',
               },
             },
           ],
@@ -151,7 +143,7 @@ module.exports = () => {
           defaultVendors: {
             chunks: 'initial',
             minChunks: 2,
-            name: path.join(paths.javascriptRoot, 'vendor'),
+            name: 'vendor',
             enforce: true,
           },
         },
@@ -232,30 +224,14 @@ module.exports = () => {
       ],
     },
     plugins: [
-      ...glob.sync('**/[!_]*.pug', { cwd: paths.src }).map(
-        (src) =>
-          new HtmlWebpackPlugin({
-            template: path.join(paths.src, src),
-            filename: path.format({
-              dir: path.dirname(src),
-              name: path.parse(src).name,
-              ext: '.html',
-            }),
-            inject: false,
-            minify: {
-              // HTMLMinifier
-              // @see https://github.com/DanielRuf/html-minifier-terser#options-quick-reference
-              removeStyleLinkTypeAttributes: true,
-              removeScriptTypeAttributes: true,
-              collapseBooleanAttributes: true,
-              collapseWhitespace: isProductionBuild,
-            },
-            publicPath,
-            isProductionBuild,
-          })
-      ),
-      new MiniCssExtractPlugin({ filename: `${assetModuleFilename}.css` }),
-      new WebpackRemoveEmptyScriptsPlugin({ verbose: !isProductionBuild }),
+      new PugPlugin({
+        pretty: true,
+        modules: [
+          PugPlugin.extractCss({
+            filename: `${paths.cssRoot}/${assetModuleFilename}.css`,
+          }),
+        ],
+      }),
       new CopyWebpackPlugin({
         patterns: [
           {
@@ -268,7 +244,7 @@ module.exports = () => {
       }),
       new FriendlyErrorsWebpackPlugin(),
     ],
-    devtool: !isProductionBuild && 'inline-source-map',
+    devtool: !isProductionBuild && 'eval',
     cache: isProductionBuild
       ? false
       : {
