@@ -141,9 +141,10 @@ module.exports = () => {
       splitChunks: {
         cacheGroups: {
           defaultVendors: {
+            test: /\.[jt]sx?$/i,
             chunks: 'initial',
             minChunks: 2,
-            name: 'vendor',
+            name: 'vendors',
             enforce: true,
           },
         },
@@ -226,11 +227,11 @@ module.exports = () => {
     plugins: [
       new PugPlugin({
         pretty: true,
-        modules: [
-          PugPlugin.extractCss({
-            filename: `${paths.cssRoot}/${assetModuleFilename}.css`,
-          }),
-        ],
+        extractComments: true,
+        verbose: !isProductionBuild,
+        extractCss: {
+          filename: `${paths.cssRoot}/${assetModuleFilename}.css`,
+        },
       }),
       new CopyWebpackPlugin({
         patterns: [

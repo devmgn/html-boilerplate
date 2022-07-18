@@ -3,12 +3,12 @@ doctype html
 html
   head
     block head
-      include _head
+      include components/layouts/_head
     block assets
       link(rel="stylesheet" href=require("assets/css/style.scss"))
   body
     block header
-      include _header
+      include components/_header
     block content
     block footer
-      include _footer
+      include components/_footer
