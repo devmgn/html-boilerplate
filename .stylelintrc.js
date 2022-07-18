@@ -7,7 +7,12 @@ module.exports = {
   extends: ['stylelint-config-recommended-scss', 'stylelint-prettier/recommended', 'stylelint-config-rational-order'],
   rules: {
     // Stylistic issues
-    'value-keyword-case': 'lower',
+    'value-keyword-case': [
+      'lower',
+      {
+        camelCaseSvgKeywords: true,
+      },
+    ],
     'function-name-case': 'lower',
     'selector-type-case': 'lower',
     // Enforce conventions

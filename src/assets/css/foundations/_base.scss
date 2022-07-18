@@ -31,11 +31,11 @@
 // 1. Remove the grey highlight on links in iOS
 // 2. Improving font rendering in macOS
 // 3. Prevent adjustments of font size after orientation changes in iOS
-:root {
+:where(:root) {
   font-family: $font-family-sans-serif;
   line-height: 1;
   overflow-wrap: break-word;
-  text-rendering: optimizespeed;
+  text-rendering: optimizeSpeed;
   -webkit-tap-highlight-color: transparent; // 1
   -webkit-font-smoothing: antialiased; // 2
   -moz-osx-font-smoothing: grayscale; // 2
@@ -46,13 +46,11 @@
 // Text content
 // ==========================================================================
 
-ol,
-ul,
-menu {
-  list-style: none;
+:where(ol, ul, menu) {
+  list-style-type: none;
 }
 
-pre {
+:where(pre) {
   font-family: $font-family-monospace;
 }
 
@@ -60,17 +58,15 @@ pre {
 // Inline text semantics
 // ==========================================================================
 
-a {
+:where(a) {
   cursor: revert;
 }
 
-code,
-kbd,
-samp {
+:where(code, kbd, samp) {
   font-family: $font-family-monospace;
 }
 
-q {
+:where(q) {
   &::before,
   &::after {
     content: unset;
@@ -81,9 +77,7 @@ q {
 // Image and multimedia
 // ==========================================================================
 
-audio,
-img,
-video {
+:where(audio, img, video) {
   vertical-align: middle;
 }
 
@@ -91,7 +85,7 @@ video {
 // Embedded content
 // ==========================================================================
 
-iframe {
+:where(iframe) {
   vertical-align: middle;
 }
 
@@ -100,10 +94,10 @@ iframe {
 // ==========================================================================
 
 // 1. Change the fill color to match the text color in all browsers
-svg {
+:where(svg) {
   vertical-align: middle;
   &:not([fill]) {
-    fill: currentcolor; // 1
+    fill: currentColor; // 1
   }
 }
 
@@ -111,7 +105,7 @@ svg {
 // Table content
 // ==========================================================================
 
-table {
+:where(table) {
   table-layout: fixed;
   border-collapse: collapse;
 }
@@ -120,26 +114,28 @@ table {
 // Forms
 // ==========================================================================
 
-button,
-[type="button"],
-[type="submit"],
-[type="reset"] {
+:where(button, [type="button"], [type="submit"], [type="reset"]) {
   &:not(:disabled) {
     cursor: pointer;
   }
 }
 
-textarea {
+:where(textarea) {
   white-space: revert;
+  resize: vertical;
 }
 
-label[for] {
+:where(label[for]) {
   cursor: pointer;
 }
 
 ::placeholder {
   color: unset;
 }
+
+// ==========================================================================
+// Others
+// ==========================================================================
 
 :where([hidden]) {
   display: none;
@@ -154,4 +150,12 @@ label[for] {
 
 :where([draggable="true"]) {
   -webkit-user-drag: element;
+}
+
+:where([tabindex]:not([tabindex*="-"])) {
+  cursor: pointer;
+}
+
+:where(a[href], area, button, input, label[for], select, summary, textarea, [tabindex]:not([tabindex*="-"])) {
+  touch-action: manipulation;
 }
