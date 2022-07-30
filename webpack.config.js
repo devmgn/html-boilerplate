@@ -132,10 +132,7 @@ module.exports = () => {
     resolve: {
       modules: ['...', paths.src],
       extensions: ['...', '.jsx', '.ts', '.tsx'],
-      alias: {
-        '@': paths.cssRoot,
-      },
-      plugins: [new TsconfigPathsPlugin()],
+      plugins: [new TsconfigPathsPlugin({ extensions: ['.ts', '.tsx', '.scss'] })],
     },
     optimization: {
       splitChunks: {
