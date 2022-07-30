@@ -5,6 +5,7 @@
 
 module.exports = {
   extends: ['stylelint-config-recommended-scss', 'stylelint-prettier/recommended', 'stylelint-config-rational-order'],
+  plugins: ['stylelint-no-unsupported-browser-features'],
   rules: {
     // Stylistic issues
     'value-keyword-case': [
@@ -38,6 +39,12 @@ module.exports = {
       'declarations',
       { type: 'at-rule', name: 'include', hasBlock: true },
       'rules',
+    ],
+    'plugin/no-unsupported-browser-features': [
+      true,
+      {
+        severity: ' warning ',
+      },
     ],
   },
 };
