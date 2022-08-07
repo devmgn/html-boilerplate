@@ -30,7 +30,7 @@ module.exports = () => {
         name: path.parse(src).name,
       });
 
-      return { ...entries, ...{ [name]: path.resolve(paths.src, src) } };
+      return { ...entries, [name]: path.resolve(paths.src, src) };
     }, {});
 
   const isProductionBuild = process.env.NODE_ENV === 'production';
@@ -55,10 +55,10 @@ module.exports = () => {
     entry: entry(),
     output: {
       path: path.resolve(paths.dist),
-      filename: `${paths.javascriptRoot}/${assetModuleFilename}.js`,
+      filename: path.join(paths.javascriptRoot, `${assetModuleFilename}.js`),
       publicPath,
       assetModuleFilename: ({ filename }) =>
-        filename ? path.join(path.relative(paths.src, path.dirname(filename)), `${assetModuleFilename}[ext]`) : '',
+        path.join(path.relative(paths.src, path.dirname(filename || '')), `${assetModuleFilename}[ext]`),
       clean: true,
     },
     module: {
@@ -99,9 +99,6 @@ module.exports = () => {
           use: [
             {
               loader: PugPlugin.loader,
-              options: {
-                method: 'render',
-              },
             },
           ],
         },
@@ -119,10 +116,11 @@ module.exports = () => {
         {
           test: /\.svg$/i,
           oneOf: [
-            {
-              resourceQuery: /include/,
-              type: 'asset/source',
-            },
+            // Not Supported pug-plugin
+            // {
+            //   resourceQuery: /include/,
+            //   type: 'asset/source',
+            // },
             { ...inlineAssetModuleOption },
             { ...assetModuleOption },
           ],
@@ -227,7 +225,7 @@ module.exports = () => {
         extractComments: true,
         verbose: !isProductionBuild,
         extractCss: {
-          filename: `${paths.cssRoot}/${assetModuleFilename}.css`,
+          filename: path.join(paths.cssRoot, `${assetModuleFilename}.css`),
         },
       }),
       new CopyWebpackPlugin({
