@@ -158,12 +158,11 @@ module.exports = () => {
           },
         }),
         new ImageMinimizerWebpackPlugin({
-          test: /\.(svg|gif)$/i,
+          test: /\.(svg)$/i,
           minimizer: {
             implementation: ImageMinimizerWebpackPlugin.imageminMinify,
             options: {
               plugins: [
-                'gifsicle',
                 [
                   'svgo',
                   {
@@ -186,34 +185,19 @@ module.exports = () => {
           },
         }),
         new ImageMinimizerWebpackPlugin({
-          test: /\.(jpe?g|png)$/i,
+          // @see https://sharp.pixelplumbing.com/api-output
+          test: /\.(jpe?g|png|gif)$/i,
           minimizer: {
-            implementation: ImageMinimizerWebpackPlugin.squooshMinify,
-            options: {
-              encodeOptions: {
-                mozjpeg: {},
-                oxipng: {},
-              },
-            },
+            implementation: ImageMinimizerWebpackPlugin.sharpMinify,
           },
           generator: [
             {
               preset: 'webp',
-              implementation: ImageMinimizerWebpackPlugin.squooshGenerate,
-              options: {
-                encodeOptions: {
-                  webp: {},
-                },
-              },
+              implementation: ImageMinimizerWebpackPlugin.sharpGenerate,
             },
             {
               preset: 'avif',
-              implementation: ImageMinimizerWebpackPlugin.squooshGenerate,
-              options: {
-                encodeOptions: {
-                  avif: {},
-                },
-              },
+              implementation: ImageMinimizerWebpackPlugin.sharpGenerate,
             },
           ],
         }),
