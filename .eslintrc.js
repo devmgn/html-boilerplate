@@ -29,10 +29,27 @@ module.exports = {
       'ignorePackages',
       {
         js: 'never',
-        jsx: 'never',
         json: 'never',
+        jsx: 'never',
         ts: 'never',
         tsx: 'never',
+      },
+    ],
+    'import/order': [
+      'warn',
+      {
+        groups: ['builtin', 'external', 'internal', 'unknown', 'parent', 'sibling', 'index', 'object', 'type'],
+        pathGroups: [
+          {
+            pattern: '@/**',
+            group: 'parent',
+            position: 'before',
+          },
+        ],
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
       },
     ],
   },

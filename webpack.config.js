@@ -5,19 +5,17 @@
 
 /** @typedef { import('webpack').Configuration } WebpackConfiguration */
 
-const glob = require('glob');
 const path = require('path');
-const sass = require('sass');
-
 // webpack plugins
-const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
-const ImageMinimizerWebpackPlugin = require('image-minimizer-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
-const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
+const glob = require('glob');
+const ImageMinimizerWebpackPlugin = require('image-minimizer-webpack-plugin');
 // @ts-ignore
 const PugPlugin = require('pug-plugin');
-
+const sass = require('sass');
+const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
 // configurations
 const { paths, assetResourcesRegExp, copyResourcesGlobPattern, assetModuleFilename } = require('./config');
 
