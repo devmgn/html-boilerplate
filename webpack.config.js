@@ -145,15 +145,7 @@ module.exports = () => {
       minimizer: [
         '...',
         new CssMinimizerWebpackPlugin({
-          minimizerOptions: {
-            preset: [
-              'default',
-              {
-                calc: false,
-                reduceInitial: false,
-              },
-            ],
-          },
+          minify: CssMinimizerWebpackPlugin.lightningCssMinify,
         }),
         new ImageMinimizerWebpackPlugin({
           test: /\.(svg)$/i,
