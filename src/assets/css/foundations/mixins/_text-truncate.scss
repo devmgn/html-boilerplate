@@ -4,8 +4,8 @@
 @mixin text-truncate($lines: 1) {
   @if $lines == 1 {
     overflow: hidden;
-    white-space: nowrap;
     text-overflow: ellipsis;
+    white-space: nowrap;
   } @else {
     display: -webkit-box;
     -webkit-box-orient: vertical;

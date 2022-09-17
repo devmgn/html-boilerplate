@@ -4,9 +4,10 @@
  */
 
 module.exports = {
-  extends: ['stylelint-config-recommended-scss', 'stylelint-prettier/recommended', 'stylelint-config-rational-order'],
-  plugins: ['stylelint-no-unsupported-browser-features'],
+  extends: ['stylelint-config-recommended-scss', 'stylelint-config-recess-order', 'stylelint-config-prettier'],
+  plugins: ['stylelint-prettier', 'stylelint-no-unsupported-browser-features'],
   rules: {
+    'prettier/prettier': true,
     // Stylistic issues
     'value-keyword-case': [
       'lower',
@@ -23,14 +24,13 @@ module.exports = {
     'declaration-block-no-redundant-longhand-properties': true,
     'selector-not-notation': 'complex',
     'selector-pseudo-element-colon-notation': 'double',
-    // Handled by pretty printers
-    'string-quotes': 'double',
     // stylelint-scss
     'scss/at-mixin-argumentless-call-parentheses': 'never',
     'scss/at-rule-conditional-no-parentheses': true,
-    'scss/dimension-no-non-numeric-values': true,
-    'scss/no-duplicate-mixins': true,
-    'scss/no-global-function-names': true,
+    'scss/function-color-relative': true,
+    'scss/dollar-variable-default': [true, { ignore: 'local' }],
+    'scss/function-no-unknown': true,
+    'scss/partial-no-import': true,
     // stylelint-order
     'order/order': [
       'dollar-variables',
