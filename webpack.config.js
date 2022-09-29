@@ -215,12 +215,6 @@ module.exports = () => {
       new FriendlyErrorsWebpackPlugin(),
     ],
     devtool: !isProductionBuild && 'eval',
-    cache: isProductionBuild
-      ? false
-      : {
-          type: 'filesystem',
-          buildDependencies: { config: [__filename] },
-        },
   };
 
   return config;

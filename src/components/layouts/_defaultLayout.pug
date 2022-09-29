@@ -1,11 +1,13 @@
 block variables
 doctype html
-html
+html(lang="ja")
   head
     block head
-      include components/layouts/_head
-    block assets
+      include components/layouts/_meta
+    block style
       link(rel="stylesheet" href=require("assets/css/style.scss"))
+    block script
+      script(src=require("assets/js/index.bundle") defer)
   body
     block header
       include components/_header

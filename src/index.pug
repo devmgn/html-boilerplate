@@ -1,9 +1,7 @@
-extends components/layouts/_page
+extends components/layouts/_defaultLayout
 block variables
   - const pageId = "top";
   - const title = "ページタイトル";
   - const description = "ページ概要";
-block append assets
-  script(src=require("assets/js/index.bundle") defer)
 block content
   main
