@@ -165,6 +165,16 @@
   cursor: pointer;
 }
 
-:where(a[href], area, button, input, label[for], select, summary, textarea, [tabindex]:not([tabindex*="-"])) {
+:where(
+    a[href],
+    area,
+    button,
+    input,
+    label[for],
+    select,
+    summary,
+    textarea,
+    [tabindex]:not([tabindex*="-"])
+  ) {
   touch-action: manipulation;
 }

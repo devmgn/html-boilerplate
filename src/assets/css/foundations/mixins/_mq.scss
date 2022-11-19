@@ -25,7 +25,9 @@
 ///     }
 ///   }
 @mixin mq($from: null, $to: null, $and: null) {
+  /* stylelint-disable-next-line scss/function-no-unknown */
   $from: _get-pixel-formatted-width($from);
+  /* stylelint-disable-next-line scss/function-no-unknown */
   $to: _get-pixel-formatted-width($to);
   $media-query-string: "";
 
