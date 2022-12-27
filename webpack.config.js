@@ -17,7 +17,12 @@ const PugPlugin = require('pug-plugin');
 const sass = require('sass');
 const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
 // configurations
-const { paths, assetResourcesRegExp, copyResourcesGlobPattern, assetModuleFilename } = require('./config');
+const {
+  paths,
+  assetResourcesRegExp,
+  copyResourcesGlobPattern,
+  assetModuleFilename,
+} = require('./config');
 
 /** @returns { WebpackConfiguration } */
 module.exports = () => {
@@ -56,7 +61,10 @@ module.exports = () => {
       filename: path.join(paths.javascriptRoot, `${assetModuleFilename}.js`),
       publicPath,
       assetModuleFilename: ({ filename }) =>
-        path.join(path.relative(paths.src, path.dirname(filename || '')), `${assetModuleFilename}[ext]`),
+        path.join(
+          path.relative(paths.src, path.dirname(filename || '')),
+          `${assetModuleFilename}[ext]`
+        ),
       clean: true,
     },
     module: {
