@@ -68,7 +68,7 @@
     "postcss-flexbugs-fixes": "5.0.2",
     "postcss-loader": "7.2.4",
     "postcss-media-minmax": "5.0.0",
-    "postcss-sort-media-queries": "4.3.0",
+    "postcss-sort-media-queries": "4.4.1",
     "prettier": "2.8.7",
     "pug-plugin": "4.9.7",
     "sass": "1.62.0",
