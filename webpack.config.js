@@ -206,7 +206,7 @@ module.exports = () => {
         pretty: true,
         extractComments: true,
         verbose: !isProductionBuild,
-        extractCss: {
+        css: {
           filename: path.join(paths.cssRoot, `${assetModuleFilename}.css`),
         },
       }),
