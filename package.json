@@ -36,8 +36,8 @@
     "core-js": "3.31.1"
   },
   "devDependencies": {
-    "@babel/core": "7.22.6",
-    "@babel/preset-env": "7.22.6",
+    "@babel/core": "7.22.7",
+    "@babel/preset-env": "7.22.7",
     "@babel/preset-typescript": "7.22.5",
     "@prettier/plugin-pug": "2.5.1",
     "@types/friendly-errors-webpack-plugin": "0.1.4",
