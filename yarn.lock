@@ -5850,10 +5850,10 @@ pug-parser@^6.0.0:
     pug-error "^2.0.0"
     token-stream "1.0.0"
 
-pug-plugin@4.9.7:
-  version "4.9.7"
-  resolved "https://registry.yarnpkg.com/pug-plugin/-/pug-plugin-4.9.7.tgz#783bacbeccd1d370f8196eae18f168d340e2e0f6"
-  integrity sha512-0n8lXy5ZlzwXaowqz3thMd1JKvMx47OdUpQA5JuwYpLh45UVlE3VFCsNHN/ghPTgA/mP5x2f55aPK/q45WAqOw==
+pug-plugin@4.9.8:
+  version "4.9.8"
+  resolved "https://registry.yarnpkg.com/pug-plugin/-/pug-plugin-4.9.8.tgz#5b2440c10e26efe3b715df64f7afec428f039394"
+  integrity sha512-3jrBHbdwLcE7Q+39Au1Xqr5XUdMubyMxqNxxMApn5sDpqTgd1G1MPzUofWrDtjU1FH/3E4jYWprxNRVejtBryQ==
   dependencies:
     "@webdiscus/pug-loader" "2.10.4"
     ansis "1.5.5"
