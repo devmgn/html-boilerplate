@@ -70,7 +70,7 @@
     "postcss-media-minmax": "5.0.0",
     "postcss-sort-media-queries": "5.2.0",
     "prettier": "3.0.1",
-    "pug-plugin": "4.9.8",
+    "pug-plugin": "4.9.9",
     "sass": "1.65.1",
     "sass-loader": "13.3.2",
     "sharp": "0.32.4",
