@@ -45,7 +45,7 @@
     "@types/html-webpack-plugin": "3.2.6",
     "@types/sass": "1.43.1",
     "@typescript-eslint/eslint-plugin": "6.4.1",
-    "@typescript-eslint/parser": "6.4.1",
+    "@typescript-eslint/parser": "6.5.0",
     "autoprefixer": "10.4.15",
     "babel-loader": "9.1.3",
     "copy-webpack-plugin": "11.0.0",
