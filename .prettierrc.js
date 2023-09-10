@@ -5,6 +5,7 @@
 
 module.exports = {
   printWidth: 100,
+  plugins: ['@prettier/plugin-pug'],
   overrides: [
     {
       files: '*.[jt]s?(x)',

@@ -2,7 +2,10 @@
 /// Global Variables
 ///
 
-$font-family-sans-serif: system-ui, -apple-system, sans-serif !default; // '-apple-system' is a fallback for Firefox @see https://caniuse.com/font-family-system-ui
+$font-family-sans-serif:
+  system-ui,
+  -apple-system,
+  sans-serif !default; // '-apple-system' is a fallback for Firefox @see https://caniuse.com/font-family-system-ui
 $font-family-monospace: monospace, monospace !default;
 
 $breakpoints: (

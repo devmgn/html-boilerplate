@@ -3,6 +3,10 @@
   "version": "0.0.0",
   "license": "UNLICENSED",
   "private": true,
+  "engines": {
+    "node": "18.17.1"
+  },
+  "packageManager": "yarn@3.6.3",
   "config": {
     "paths": {
       "src": "src",
@@ -19,10 +23,10 @@
     "prepare": "husky install",
     "preinstall": "npx only-allow yarn",
     "clean": "rm -rf $npm_package_config_paths_dist node_modules yarn.lock yarn-error.log .*lintcache .tsconfig.tsbuildinfo",
-    "dev": "webpack serve --host local-ip --port 3000 --open --static $npm_package_config_paths_src",
-    "lint:pug": "prettier \"$npm_package_config_paths_src/**/*.pug\" --cache --write",
-    "lint:style": "stylelint \"$npm_package_config_paths_src/**/*.scss\" --fix --cache && prettier \"$npm_package_config_paths_src/**/*.scss\" --write",
-    "lint:javascript": "eslint \"$npm_package_config_paths_src/**/*.[jt]s?(x)\" --fix --cache && prettier \"$npm_package_config_paths_src/**/*.[jt]s?(x)\" --cache --write",
+    "dev": "webpack serve --host local-ip --port 3000 --open --static src/",
+    "lint:pug": "prettier 'src/**/*.pug' --cache --write",
+    "lint:style": "stylelint 'src/**/*.scss' --fix --cache && prettier 'src/**/*.scss' --write",
+    "lint:javascript": "eslint 'src/**/*.[jt]s?(x)' --fix --cache && prettier 'src/**/*.[jt]s?(x)' --cache --write",
     "lint": "yarn lint:pug & yarn lint:style & yarn lint:javascript & yarn tsc",
     "prebuild": "yarn lint",
     "build": "NODE_ENV=production webpack"
