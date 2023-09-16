@@ -1839,14 +1839,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/html-webpack-plugin@npm:3.2.6":
-  version: 3.2.6
-  resolution: "@types/html-webpack-plugin@npm:3.2.6"
+"@types/html-webpack-plugin@npm:3.2.7":
+  version: 3.2.7
+  resolution: "@types/html-webpack-plugin@npm:3.2.7"
   dependencies:
     "@types/html-minifier": "*"
     "@types/tapable": ^1
     "@types/webpack": ^4
-  checksum: 75aeb668e626687db7d24dfb6ef500de2362c1703839ca9ef5b7ec742ff5d3e5d9cef31ac189e8fead0e791f5bdfcb430d74e2cfb7cd8365927d7899ead3edc5
+  checksum: 6a09dad5f4c9841fb6b1071a7a0f4ed0d1341c63ccd9ba975a9d3bd58ad601ec79993e5cbb09503a2bb5563fe4a95b5fdf82f48fed000b9516a34e8300b25b47
   languageName: node
   linkType: hard
 
@@ -5436,7 +5436,7 @@ __metadata:
     "@prettier/plugin-pug": 3.0.0
     "@types/friendly-errors-webpack-plugin": 0.1.5
     "@types/glob": 8.1.0
-    "@types/html-webpack-plugin": 3.2.6
+    "@types/html-webpack-plugin": 3.2.7
     "@types/sass": 1.43.1
     "@typescript-eslint/eslint-plugin": 6.7.0
     "@typescript-eslint/parser": 6.7.0
