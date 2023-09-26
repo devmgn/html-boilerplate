@@ -5,45 +5,41 @@
 
 module.exports = {
   root: true,
-  env: {
-    es2021: true,
-    browser: true,
+  extends: [
+    'airbnb-base',
+    'plugin:@typescript-eslint/strict',
+    'plugin:@typescript-eslint/stylistic-type-checked',
+    'prettier',
+  ],
+  settings: {
+    'import/resolver': {
+      typescript: true,
+    },
   },
-  extends: ['airbnb-base', 'prettier'],
   rules: {
-    'no-console': [
-      'error',
-      {
-        allow: ['error', 'warn'],
-      },
-    ],
     'lines-between-class-members': [
       'error',
       'always',
-      {
-        exceptAfterSingleLine: true,
-      },
+      { exceptAfterSingleLine: true },
     ],
-    'import/extensions': [
+    'no-console': ['warn', { allow: ['error', 'warn'] }],
+    'no-restricted-syntax': [
       'error',
-      'ignorePackages',
       {
-        js: 'never',
-        json: 'never',
-        jsx: 'never',
-        ts: 'never',
-        tsx: 'never',
+        selector: 'TSEnumDeclaration:not([const=true])',
+        message: "Don't declare non-const enums",
       },
     ],
     'import/order': [
-      'warn',
+      'error',
       {
         groups: [
           'builtin',
           'external',
           'internal',
           'unknown',
-          ['parent', 'sibling'],
+          'parent',
+          'sibling',
           'index',
           'object',
           'type',
@@ -55,29 +51,43 @@ module.exports = {
             position: 'before',
           },
         ],
+        'newlines-between': 'never',
+        warnOnUnassignedImports: true,
+        pathGroupsExcludedImportTypes: ['builtin', 'object', 'type'],
         alphabetize: {
           order: 'asc',
           caseInsensitive: true,
         },
       },
     ],
+    'sort-imports': ['error', { ignoreDeclarationSort: true }],
+    '@typescript-eslint/consistent-type-definitions': 'off',
+    '@typescript-eslint/consistent-type-imports': [
+      'error',
+      { prefer: 'type-imports' },
+    ],
+    '@typescript-eslint/naming-convention': [
+      'warn',
+      {
+        selector: ['interface', 'typeAlias', 'class'],
+        format: ['PascalCase'],
+      },
+      {
+        selector: 'variable',
+        format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
+      },
+      {
+        selector: 'function',
+        format: ['camelCase', 'PascalCase'],
+      },
+    ],
   },
   overrides: [
     {
       files: ['**/*.ts?(x)'],
-      extends: [
-        'plugin:@typescript-eslint/recommended',
-        'plugin:@typescript-eslint/recommended-requiring-type-checking',
-      ],
+      parser: '@typescript-eslint/parser',
       parserOptions: {
-        project: 'tsconfig.json',
-      },
-      settings: {
-        'import/resolver': {
-          typescript: {
-            project: './',
-          },
-        },
+        project: true,
       },
     },
   ],

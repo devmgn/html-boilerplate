@@ -81,8 +81,6 @@
     "stylelint": "15.10.3",
     "stylelint-config-recess-order": "4.3.0",
     "stylelint-config-recommended-scss": "13.0.0",
-    "stylelint-no-unsupported-browser-features": "7.0.0",
-    "stylelint-prettier": "4.0.2",
     "svgo": "3.0.2",
     "tsconfig-paths-webpack-plugin": "4.1.0",
     "typescript": "5.2.2",

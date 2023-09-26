@@ -4,10 +4,11 @@
  */
 
 module.exports = {
-  extends: ['stylelint-config-recommended-scss', 'stylelint-config-recess-order'],
-  plugins: ['stylelint-prettier', 'stylelint-no-unsupported-browser-features'],
+  extends: [
+    'stylelint-config-recommended-scss',
+    'stylelint-config-recess-order',
+  ],
   rules: {
-    'prettier/prettier': true,
     // Stylistic issues
     'value-keyword-case': [
       'lower',
@@ -16,6 +17,7 @@ module.exports = {
       },
     ],
     'function-name-case': 'lower',
+
     'selector-type-case': 'lower',
     // Enforce conventions
     'length-zero-no-unit': true,
@@ -39,12 +41,6 @@ module.exports = {
       'declarations',
       { type: 'at-rule', name: 'include', hasBlock: true },
       'rules',
-    ],
-    'plugin/no-unsupported-browser-features': [
-      true,
-      {
-        severity: 'warning',
-      },
     ],
   },
 };
