@@ -5029,7 +5029,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:10.3.9, glob@npm:^10.2.2":
+"glob@npm:10.3.10":
+  version: 10.3.10
+  resolution: "glob@npm:10.3.10"
+  dependencies:
+    foreground-child: ^3.1.0
+    jackspeak: ^2.3.5
+    minimatch: ^9.0.1
+    minipass: ^5.0.0 || ^6.0.2 || ^7.0.0
+    path-scurry: ^1.10.1
+  bin:
+    glob: dist/esm/bin.mjs
+  checksum: 4f2fe2511e157b5a3f525a54092169a5f92405f24d2aed3142f4411df328baca13059f4182f1db1bf933e2c69c0bd89e57ae87edd8950cba8c7ccbe84f721cf3
+  languageName: node
+  linkType: hard
+
+"glob@npm:^10.2.2":
   version: 10.3.9
   resolution: "glob@npm:10.3.9"
   dependencies:
@@ -5326,7 +5341,7 @@ __metadata:
     eslint-import-resolver-typescript: 3.6.1
     eslint-plugin-import: 2.28.1
     friendly-errors-webpack-plugin: 1.7.0
-    glob: 10.3.9
+    glob: 10.3.10
     husky: 8.0.3
     image-minimizer-webpack-plugin: 3.8.3
     imagemin: 8.0.1
