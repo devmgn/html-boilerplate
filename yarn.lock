@@ -1765,12 +1765,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/friendly-errors-webpack-plugin@npm:0.1.5":
-  version: 0.1.5
-  resolution: "@types/friendly-errors-webpack-plugin@npm:0.1.5"
+"@types/friendly-errors-webpack-plugin@npm:0.1.6":
+  version: 0.1.6
+  resolution: "@types/friendly-errors-webpack-plugin@npm:0.1.6"
   dependencies:
     "@types/webpack": ^4
-  checksum: 14b0337e18ba04257f64581b37bde5f21ae58baf36e65811e68d16e2e575ac5b3e25802cf9be3b8d0796d99e241843b05f31265af5cd0631c685cc42772e5e3b
+  checksum: 5c24111682349e7e9a6f79e01623c13ef7133033d4b81fc266b025752baa24592492a5dfd65da4489c788f7e99dc45da68a60e0af0b032b142ee9a6a2a33746b
   languageName: node
   linkType: hard
 
@@ -5350,7 +5350,7 @@ __metadata:
     "@babel/preset-env": 7.23.2
     "@babel/preset-typescript": 7.23.2
     "@prettier/plugin-pug": 3.0.0
-    "@types/friendly-errors-webpack-plugin": 0.1.5
+    "@types/friendly-errors-webpack-plugin": 0.1.6
     "@types/glob": 8.1.0
     "@types/html-webpack-plugin": 3.2.7
     "@types/sass": 1.43.1
