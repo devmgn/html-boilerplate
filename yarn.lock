@@ -1795,14 +1795,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/html-webpack-plugin@npm:3.2.8":
-  version: 3.2.8
-  resolution: "@types/html-webpack-plugin@npm:3.2.8"
+"@types/html-webpack-plugin@npm:3.2.9":
+  version: 3.2.9
+  resolution: "@types/html-webpack-plugin@npm:3.2.9"
   dependencies:
     "@types/html-minifier": "npm:*"
     "@types/tapable": "npm:^1"
     "@types/webpack": "npm:^4"
-  checksum: 8/4595225e47837c3c83ef6fcd7ecbc671b1469aaf6d6a626f87735436ea59a0b85b314083763f3498539e6e52e275ef1f4e86492abf7f85e06055f49a3aafa7e5
+  checksum: be786ef9b9e9a7e8a41cc95c94fd6a574a216b4d5df519cdcfaa71277ba5072f8dacf854a4e52af0c69800dcf517a4d0360e2bd0b64e28cb43702cc6d23bdc81
   languageName: node
   linkType: hard
 
@@ -5383,7 +5383,7 @@ __metadata:
     "@prettier/plugin-pug": "npm:3.0.0"
     "@types/friendly-errors-webpack-plugin": "npm:0.1.7"
     "@types/glob": "npm:8.1.0"
-    "@types/html-webpack-plugin": "npm:3.2.8"
+    "@types/html-webpack-plugin": "npm:3.2.9"
     "@types/sass": "npm:1.43.1"
     "@typescript-eslint/eslint-plugin": "npm:6.10.0"
     "@typescript-eslint/parser": "npm:6.10.0"
