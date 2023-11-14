@@ -6,7 +6,7 @@
   "engines": {
     "node": "20.9.0"
   },
-  "packageManager": "yarn@4.0.1",
+  "packageManager": "yarn@4.0.2",
   "config": {
     "paths": {
       "src": "src",
