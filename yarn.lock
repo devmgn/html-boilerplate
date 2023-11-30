@@ -5595,7 +5595,7 @@ __metadata:
     stylelint: "npm:15.11.0"
     stylelint-config-recess-order: "npm:4.4.0"
     stylelint-config-recommended-scss: "npm:13.1.0"
-    svgo: "npm:3.0.4"
+    svgo: "npm:3.0.5"
     tsconfig-paths-webpack-plugin: "npm:4.1.0"
     typescript: "npm:5.3.2"
     webpack: "npm:5.89.0"
@@ -9661,9 +9661,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svgo@npm:3.0.4":
-  version: 3.0.4
-  resolution: "svgo@npm:3.0.4"
+"svgo@npm:3.0.5":
+  version: 3.0.5
+  resolution: "svgo@npm:3.0.5"
   dependencies:
     "@trysound/sax": "npm:0.2.0"
     commander: "npm:^7.2.0"
@@ -9674,7 +9674,7 @@ __metadata:
     picocolors: "npm:^1.0.0"
   bin:
     svgo: ./bin/svgo
-  checksum: 2751ddbb27a9461a0e9b2b9faa2e599bbd57da1a9115565bb0336582655d38292f4ec444b6abf2e7adb3fc38abb8a6acb7cabd7f30bd186722dceba8495c2583
+  checksum: 6644fe2d01622d4d9a20816f5f2a65f4ec218e428ddbc0027e57eef209733b9b967d5547ef4f87a4a11aa4ab03b58ab26a51dba3e06d142b149d4d5ae12ce9cc
   languageName: node
   linkType: hard
 
