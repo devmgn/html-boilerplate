@@ -5556,7 +5556,7 @@ __metadata:
     sass: "npm:1.69.5"
     sass-loader: "npm:13.3.2"
     sharp: "npm:0.33.0"
-    stylelint: "npm:16.0.0"
+    stylelint: "npm:16.0.1"
     stylelint-config-recess-order: "npm:4.4.0"
     stylelint-config-recommended-scss: "npm:13.1.0"
     svgo: "npm:3.0.5"
@@ -9402,9 +9402,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint@npm:16.0.0":
-  version: 16.0.0
-  resolution: "stylelint@npm:16.0.0"
+"stylelint@npm:16.0.1":
+  version: 16.0.1
+  resolution: "stylelint@npm:16.0.1"
   dependencies:
     "@csstools/css-parser-algorithms": "npm:^2.3.2"
     "@csstools/css-tokenizer": "npm:^2.2.1"
@@ -9446,7 +9446,7 @@ __metadata:
     write-file-atomic: "npm:^5.0.1"
   bin:
     stylelint: bin/stylelint.mjs
-  checksum: fae437452ec794eb1173b5b6f37d2bb1812986f7059c5d0ad54a3fb962ed2c4e483b8a7ce5d80e1e284bc5b9f3ccf38a7b869065ab25c8614b26071ee9677bd9
+  checksum: 957bc845dfe76216c571567f10bdf209e93592146024a3e726d860c7dcc42b84ed2a5ef4a722784e07aa371709d49f0d21dc9abd66a3a36fdbbaafb1b9cee2de
   languageName: node
   linkType: hard
 
