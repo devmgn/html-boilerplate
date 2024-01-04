@@ -68,7 +68,7 @@
     "imagemin-svgo": "10.0.1",
     "lightningcss": "1.22.1",
     "lint-staged": "15.2.0",
-    "postcss": "8.4.32",
+    "postcss": "8.4.33",
     "postcss-flexbugs-fixes": "5.0.2",
     "postcss-loader": "7.3.4",
     "postcss-media-minmax": "5.0.0",
