@@ -5592,7 +5592,7 @@ __metadata:
     friendly-errors-webpack-plugin: "npm:1.7.0"
     glob: "npm:10.3.10"
     husky: "npm:8.0.3"
-    image-minimizer-webpack-plugin: "npm:3.8.3"
+    image-minimizer-webpack-plugin: "npm:4.0.0"
     imagemin: "npm:8.0.1"
     imagemin-svgo: "npm:10.0.1"
     lightningcss: "npm:1.23.0"
@@ -5809,12 +5809,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"image-minimizer-webpack-plugin@npm:3.8.3":
-  version: 3.8.3
-  resolution: "image-minimizer-webpack-plugin@npm:3.8.3"
+"image-minimizer-webpack-plugin@npm:4.0.0":
+  version: 4.0.0
+  resolution: "image-minimizer-webpack-plugin@npm:4.0.0"
   dependencies:
     schema-utils: "npm:^4.2.0"
-    serialize-javascript: "npm:^6.0.1"
+    serialize-javascript: "npm:^6.0.2"
   peerDependencies:
     webpack: ^5.1.0
   peerDependenciesMeta:
@@ -5826,7 +5826,7 @@ __metadata:
       optional: true
     svgo:
       optional: true
-  checksum: 8/4c61c6e192d4b5ec0fbdb6727851d7c76c69ab11205a311199b22cef8d9aaa67ad1dd98dbf886daa632758187a4280bfbfbbfd6605f17e9b8b2e04315a2d5811
+  checksum: ef61f47fbc3ca541d6a1387ee192e6256905a116ebe9edb353903f93ceeb13f93627465158b96c3540b4f0173b58e27ea4f24bd4ac5dd12d56947c170ec53539
   languageName: node
   linkType: hard
 
@@ -8850,6 +8850,15 @@ __metadata:
   dependencies:
     randombytes: "npm:^2.1.0"
   checksum: 8/3c4f4cb61d0893b988415bdb67243637333f3f574e9e9cc9a006a2ced0b390b0b3b44aef8d51c951272a9002ec50885eefdc0298891bc27eb2fe7510ea87dc4f
+  languageName: node
+  linkType: hard
+
+"serialize-javascript@npm:^6.0.2":
+  version: 6.0.2
+  resolution: "serialize-javascript@npm:6.0.2"
+  dependencies:
+    randombytes: "npm:^2.1.0"
+  checksum: 2dd09ef4b65a1289ba24a788b1423a035581bef60817bea1f01eda8e3bda623f86357665fe7ac1b50f6d4f583f97db9615b3f07b2a2e8cbcb75033965f771dd2
   languageName: node
   linkType: hard
 
