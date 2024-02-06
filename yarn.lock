@@ -5661,7 +5661,7 @@ __metadata:
     sass-loader: "npm:14.1.0"
     sharp: "npm:0.33.2"
     stylelint: "npm:16.2.1"
-    stylelint-config-recess-order: "npm:4.4.0"
+    stylelint-config-recess-order: "npm:4.5.0"
     stylelint-config-recommended-scss: "npm:14.0.0"
     svgo: "npm:3.2.0"
     tsconfig-paths-webpack-plugin: "npm:4.1.0"
@@ -9507,14 +9507,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint-config-recess-order@npm:4.4.0":
-  version: 4.4.0
-  resolution: "stylelint-config-recess-order@npm:4.4.0"
+"stylelint-config-recess-order@npm:4.5.0":
+  version: 4.5.0
+  resolution: "stylelint-config-recess-order@npm:4.5.0"
   dependencies:
     stylelint-order: "npm:6.x"
   peerDependencies:
     stylelint: ">=15"
-  checksum: 10c0/6ab4146746c43db9252a70c3d55018e2e67cd5f7d909f343093ec06bf832db7ce8aa4a35e47dbac6f0e2937194d75ba392e5c70cff468bc9221afc8ee5292d3e
+  checksum: 10c0/29b4cc1ceebeb8c571640527ddda55ada441eb2ef2937dfbc373557654a1b42748acf7f946dcf96d9ac3c336df004df9bd1dafc64ee1e5005706b5ba393cbd84
   languageName: node
   linkType: hard
 
