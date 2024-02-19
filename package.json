@@ -76,7 +76,7 @@
     "prettier": "3.2.5",
     "pug-plugin": "4.9.9",
     "sass": "1.71.0",
-    "sass-loader": "14.1.0",
+    "sass-loader": "14.1.1",
     "sharp": "0.33.2",
     "stylelint": "16.2.1",
     "stylelint-config-recess-order": "4.6.0",
