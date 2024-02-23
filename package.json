@@ -66,7 +66,7 @@
     "image-minimizer-webpack-plugin": "4.0.0",
     "imagemin": "8.0.1",
     "imagemin-svgo": "10.0.1",
-    "lightningcss": "1.23.0",
+    "lightningcss": "1.24.0",
     "lint-staged": "15.2.2",
     "postcss": "8.4.35",
     "postcss-flexbugs-fixes": "5.0.2",
