@@ -2264,12 +2264,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/sass@npm:1.43.1":
-  version: 1.43.1
-  resolution: "@types/sass@npm:1.43.1"
+"@types/sass@npm:1.45.0":
+  version: 1.45.0
+  resolution: "@types/sass@npm:1.45.0"
   dependencies:
-    "@types/node": "npm:*"
-  checksum: 10c0/cb55602b2f7a356d784e8ad1f432246daf4cb1fe75ef27ede997d41bdee0b08814435966471909762043d5169e009fab4a3b14db98e782103081b2da64497304
+    sass: "npm:*"
+  checksum: 10c0/e2628516d16f9232226a693ff5e512ef64445df3b675a17b84c7af865f68a1c1156b5d0e2b6b9341c571348f719b705ac8a622caa304ea5700755cb7019a0071
   languageName: node
   linkType: hard
 
@@ -5524,7 +5524,7 @@ __metadata:
     "@types/friendly-errors-webpack-plugin": "npm:0.1.7"
     "@types/glob": "npm:8.1.0"
     "@types/html-webpack-plugin": "npm:3.2.9"
-    "@types/sass": "npm:1.43.1"
+    "@types/sass": "npm:1.45.0"
     "@typescript-eslint/eslint-plugin": "npm:6.21.0"
     "@typescript-eslint/parser": "npm:6.21.0"
     autoprefixer: "npm:10.4.18"
@@ -8620,7 +8620,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:1.72.0":
+"sass@npm:*, sass@npm:1.72.0":
   version: 1.72.0
   resolution: "sass@npm:1.72.0"
   dependencies:
