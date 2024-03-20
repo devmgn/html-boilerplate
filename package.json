@@ -47,7 +47,7 @@
     "@types/friendly-errors-webpack-plugin": "0.1.7",
     "@types/glob": "8.1.0",
     "@types/html-webpack-plugin": "3.2.9",
-    "@types/sass": "1.43.1",
+    "@types/sass": "1.45.0",
     "@typescript-eslint/eslint-plugin": "6.21.0",
     "@typescript-eslint/parser": "6.21.0",
     "autoprefixer": "10.4.18",
