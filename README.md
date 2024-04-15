@@ -44,29 +44,29 @@ Default resolved path: `assets/js` \*`@` is the alias of the resolved path
 #### default
 
 ```pug
-img(src=require("assets/images/foo.jpg"))
+img(src="assets/images/foo.jpg")
 ```
 
 ##### data-uri
 
 ```pug
-img(src=require("path/to/file.jpg?inline"))
+img(src="path/to/file.jpg?inline")
 ```
 
 ##### raw (for svg)
 
 ```pug
-img(src=require("path/to/file.svg?include")
+img(src="path/to/file.svg?include)
 ```
 
 ##### webp
 
 ```pug
-img(src=require("path/to/file.jpg?as=webp"))
+img(src="path/to/file.jpg?as=webp")
 ```
 
 ##### avif
 
 ```pug
-img(src=require("path/to/file.jpg?as=avif"))
+img(src="path/to/file.jpg?as=avif")
 ```
