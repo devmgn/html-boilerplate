@@ -63,7 +63,7 @@ module.exports = () => {
       assetModuleFilename: ({ filename }) =>
         path.join(
           path.relative(paths.src, path.dirname(filename || '')),
-          `${assetModuleFilename}[ext]`
+          `${assetModuleFilename}[ext]`,
         ),
       clean: true,
     },
@@ -99,15 +99,6 @@ module.exports = () => {
             },
           ],
         },
-        // Pug
-        {
-          test: /\.pug$/i,
-          use: [
-            {
-              loader: PugPlugin.loader,
-            },
-          ],
-        },
         // Assets
         {
           test: assetResourcesRegExp,
@@ -136,7 +127,9 @@ module.exports = () => {
     resolve: {
       modules: ['...', paths.src],
       extensions: ['...', '.jsx', '.ts', '.tsx'],
-      plugins: [new TsconfigPathsPlugin({ extensions: ['.ts', '.tsx', '.scss'] })],
+      plugins: [
+        new TsconfigPathsPlugin({ extensions: ['.ts', '.tsx', '.scss'] }),
+      ],
     },
     optimization: {
       splitChunks: {
