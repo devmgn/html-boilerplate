@@ -63,7 +63,7 @@
     "friendly-errors-webpack-plugin": "1.7.0",
     "glob": "10.4.1",
     "husky": "9.0.11",
-    "image-minimizer-webpack-plugin": "4.0.0",
+    "image-minimizer-webpack-plugin": "4.0.1",
     "imagemin": "8.0.1",
     "imagemin-svgo": "10.0.1",
     "lightningcss": "1.25.1",
