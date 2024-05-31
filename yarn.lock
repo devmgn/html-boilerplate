@@ -5670,7 +5670,7 @@ __metadata:
     postcss-media-minmax: "npm:5.0.0"
     postcss-sort-media-queries: "npm:5.2.0"
     prettier: "npm:3.2.5"
-    pug-plugin: "npm:5.2.0"
+    pug-plugin: "npm:5.3.0"
     sass: "npm:1.77.4"
     sass-loader: "npm:14.2.1"
     sharp: "npm:0.33.4"
@@ -5686,9 +5686,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"html-bundler-webpack-plugin@npm:3.8.0":
-  version: 3.8.0
-  resolution: "html-bundler-webpack-plugin@npm:3.8.0"
+"html-bundler-webpack-plugin@npm:3.14.0":
+  version: 3.14.0
+  resolution: "html-bundler-webpack-plugin@npm:3.14.0"
   dependencies:
     "@types/html-minifier-terser": "npm:^7.0.2"
     ansis: "npm:2.0.3"
@@ -5700,7 +5700,7 @@ __metadata:
     favicons: ">=7.1.4"
     handlebars: ">=4.7.7"
     liquidjs: ">=10.7.0"
-    markdown-it: ">=13.0.1"
+    markdown-it: ">=12"
     mustache: ">=4.2.0"
     nunjucks: ">=3.2.3"
     parse5: ">=7.1.2"
@@ -5731,7 +5731,7 @@ __metadata:
       optional: true
     twig:
       optional: true
-  checksum: 10c0/47363285c0320d523fdfbf6ed3f02f261fc96cea847ca357316899d1b9c96696ff5df44537c8876dd339a501997d59dcf2926cba0b07a3a728ac17c60bee4d60
+  checksum: 10c0/640a6cfb2e59a1412673fa4c98c2794e3c15ba4b0957a67ec64c98d61714c5a125970885e5ab13396728db0bca19c37489d174fe1cbdad68e466d3decc04a743
   languageName: node
   linkType: hard
 
@@ -8424,19 +8424,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pug-code-gen@npm:^3.0.2":
-  version: 3.0.2
-  resolution: "pug-code-gen@npm:3.0.2"
+"pug-code-gen@npm:^3.0.3":
+  version: 3.0.3
+  resolution: "pug-code-gen@npm:3.0.3"
   dependencies:
     constantinople: "npm:^4.0.1"
     doctypes: "npm:^1.1.0"
     js-stringify: "npm:^1.0.2"
     pug-attrs: "npm:^3.0.0"
-    pug-error: "npm:^2.0.0"
-    pug-runtime: "npm:^3.0.0"
+    pug-error: "npm:^2.1.0"
+    pug-runtime: "npm:^3.0.1"
     void-elements: "npm:^3.1.0"
     with: "npm:^7.0.0"
-  checksum: 10c0/a9b7f7fe1cadd16682f46b5de087f22cce1be3b48cbb7137da046b4912434143f1ffdb0e7a07e03fa961f3342f944d3eefbc1a50751f7561ae431720c29448fe
+  checksum: 10c0/517a93930dbc80bc7fa5f60ff324229a07cc5ab70ed9d344ce105e2fe24de68db5121c8457a9ba99cdc8d48dd18779dd34956ebfcab009b3c1c6843a3cade109
   languageName: node
   linkType: hard
 
@@ -8444,6 +8444,13 @@ __metadata:
   version: 2.0.0
   resolution: "pug-error@npm:2.0.0"
   checksum: 10c0/f07d603f659e1cc27aef3f0cfa6c37608c7cc0611c1e55963a03d4eb78ef44982e8f0b1a703b5d5d5cece6409f13c8f3c337b2842299adc4caa64b0f747df517
+  languageName: node
+  linkType: hard
+
+"pug-error@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "pug-error@npm:2.1.0"
+  checksum: 10c0/bbce339b17fab9890de84975c0cd8723a847bf65f35653d3ebcf77018e8ad91529d56e978ab80f4c64c9f4f07ef9e56e7a9fda3be44249c344a93ba11fccff79
   languageName: node
   linkType: hard
 
@@ -8501,17 +8508,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pug-plugin@npm:5.2.0":
-  version: 5.2.0
-  resolution: "pug-plugin@npm:5.2.0"
+"pug-plugin@npm:5.3.0":
+  version: 5.3.0
+  resolution: "pug-plugin@npm:5.3.0"
   dependencies:
     ansis: "npm:2.0.3"
-    html-bundler-webpack-plugin: "npm:3.8.0"
+    html-bundler-webpack-plugin: "npm:3.14.0"
     js-beautify: "npm:^1.15.1"
-    pug: "npm:3.0.2"
+    pug: "npm:3.0.3"
   peerDependencies:
     webpack: ">=5.32.0"
-  checksum: 10c0/77e857838cb381992a54a64f45499b567ae00da5f650aef18353ee1a47345ed31e2744e26d20ddafde84471c787e81f09675802a27f3341c2c79af56d578ed56
+  checksum: 10c0/768122adf1298007bb0f4673946bfa444e13d68e7daa3fa93a69ff8948c9a3ec8d963a150989a74ec6a1bf1fe101afe993dd2964a0ee02b8501c0eb53b3c038a
   languageName: node
   linkType: hard
 
@@ -8538,11 +8545,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pug@npm:3.0.2":
-  version: 3.0.2
-  resolution: "pug@npm:3.0.2"
+"pug@npm:3.0.3":
+  version: 3.0.3
+  resolution: "pug@npm:3.0.3"
   dependencies:
-    pug-code-gen: "npm:^3.0.2"
+    pug-code-gen: "npm:^3.0.3"
     pug-filters: "npm:^4.0.0"
     pug-lexer: "npm:^5.0.1"
     pug-linker: "npm:^4.0.0"
@@ -8550,7 +8557,7 @@ __metadata:
     pug-parser: "npm:^6.0.0"
     pug-runtime: "npm:^3.0.1"
     pug-strip-comments: "npm:^2.0.0"
-  checksum: 10c0/1d4d33e577a59f2df50bbb75aadebe67896c93046627a7435005bda693c34cf6023d814bd424d9b06b7842b03587da5ec66baedf7c49320a697696574302120b
+  checksum: 10c0/bda53d3a6deea1d348cd5ab17427c77f3d74165510ad16f4fd182cc63618ad09388ecda317d17122ee890c8a68f9a54b96221fce7f44a332e463fdbb10a9d1e2
   languageName: node
   linkType: hard
 
