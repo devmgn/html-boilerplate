@@ -6050,7 +6050,7 @@ __metadata:
     friendly-errors-webpack-plugin: "npm:1.7.0"
     glob: "npm:10.4.5"
     husky: "npm:9.1.3"
-    image-minimizer-webpack-plugin: "npm:4.0.2"
+    image-minimizer-webpack-plugin: "npm:4.1.0"
     imagemin: "npm:8.0.1"
     imagemin-svgo: "npm:10.0.1"
     lightningcss: "npm:1.25.1"
@@ -6316,9 +6316,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"image-minimizer-webpack-plugin@npm:4.0.2":
-  version: 4.0.2
-  resolution: "image-minimizer-webpack-plugin@npm:4.0.2"
+"image-minimizer-webpack-plugin@npm:4.1.0":
+  version: 4.1.0
+  resolution: "image-minimizer-webpack-plugin@npm:4.1.0"
   dependencies:
     schema-utils: "npm:^4.2.0"
     serialize-javascript: "npm:^6.0.2"
@@ -6333,7 +6333,7 @@ __metadata:
       optional: true
     svgo:
       optional: true
-  checksum: 10c0/e4242405f162c74c9bba09de0a531890793a1f439da18c00439fe0329fb2efa31fc9fa30bdd020de81d5319e1a64f34dd2e82b2fd16a6508a03ce46987e0fff7
+  checksum: 10c0/8061d85cdd0da49a33cd4a8ad729c22093bb934068a0d830f7f94633a24f4cd92a897d928107cabd7fc0aa00f97a931eae7f0767717f01413ec545ba390584d5
   languageName: node
   linkType: hard
 
