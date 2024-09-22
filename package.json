@@ -79,7 +79,7 @@
     "sass-loader": "16.0.2",
     "sharp": "0.33.5",
     "stylelint": "16.9.0",
-    "stylelint-config-recess-order": "5.1.0",
+    "stylelint-config-recess-order": "5.1.1",
     "stylelint-config-recommended-scss": "14.1.0",
     "svgo": "3.3.2",
     "tsconfig-paths-webpack-plugin": "4.1.0",
