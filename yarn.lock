@@ -5891,7 +5891,7 @@ __metadata:
     postcss-sort-media-queries: "npm:5.2.0"
     prettier: "npm:3.3.3"
     pug-plugin: "npm:5.3.0"
-    sass: "npm:1.80.0"
+    sass: "npm:1.80.1"
     sass-loader: "npm:16.0.2"
     sharp: "npm:0.33.5"
     stylelint: "npm:16.10.0"
@@ -9406,9 +9406,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:1.80.0":
-  version: 1.80.0
-  resolution: "sass@npm:1.80.0"
+"sass@npm:1.80.1":
+  version: 1.80.1
+  resolution: "sass@npm:1.80.1"
   dependencies:
     "@parcel/watcher": "npm:^2.4.1"
     chokidar: "npm:^4.0.0"
@@ -9416,7 +9416,7 @@ __metadata:
     source-map-js: "npm:>=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: 10c0/d28ce6b0a924f1aa7fe6d7a9f2f1fbb19c7e552bb6f4b9d0b35e58af50e53620f78a18f7bf040f127dd665a8adafcb178235e072252af9720b10cdedcaf6783d
+  checksum: 10c0/91ec2b8bcba4c3c68c047fdcbe04cb82646b5cc6446e04d9134ff3c642d9895363de5cbf88869f0a6aa81bcd2de9b8ccba7df7ff35d33a07a18754014ee7a31a
   languageName: node
   linkType: hard
 
