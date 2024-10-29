@@ -75,7 +75,7 @@
     "postcss-sort-media-queries": "5.2.0",
     "prettier": "3.3.3",
     "pug-plugin": "5.3.0",
-    "sass": "1.80.4",
+    "sass": "1.80.5",
     "sass-loader": "16.0.2",
     "sharp": "0.33.5",
     "stylelint": "16.10.0",
