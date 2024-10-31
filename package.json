@@ -37,7 +37,7 @@
     "*.[jt]s?(x)": "yarn lint:javascript"
   },
   "dependencies": {
-    "core-js": "3.38.1"
+    "core-js": "3.39.0"
   },
   "devDependencies": {
     "@babel/core": "7.26.0",
