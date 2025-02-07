@@ -44,7 +44,7 @@
     "@babel/preset-env": "7.26.7",
     "@babel/preset-typescript": "7.26.0",
     "@prettier/plugin-pug": "3.2.1",
-    "@types/friendly-errors-webpack-plugin": "0.1.7",
+    "@types/friendly-errors-webpack-plugin": "1.7.0",
     "@types/glob": "8.1.0",
     "@types/html-webpack-plugin": "3.2.9",
     "@types/sass": "1.45.0",
