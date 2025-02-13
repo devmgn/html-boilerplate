@@ -3092,10 +3092,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ansis@npm:2.0.3":
-  version: 2.0.3
-  resolution: "ansis@npm:2.0.3"
-  checksum: 10c0/82f4905a265e33999495184ff9cbe255d71b8199020587f54f1b725621968a8ed7e17afc07ede072bec4ca53244f00fa87f323417dba5acf148259bdafea858a
+"ansis@npm:3.10.0":
+  version: 3.10.0
+  resolution: "ansis@npm:3.10.0"
+  checksum: 10c0/1b2e76adbea239d3ccaf9020c65e535365b40c71f11e35109b11d8753cf19bb2ade9faf0962bfa8839e449d1ccdb02c875c22a76ec2bbdbf8b53f7c181d1bc76
+  languageName: node
+  linkType: hard
+
+"ansis@npm:3.9.0":
+  version: 3.9.0
+  resolution: "ansis@npm:3.9.0"
+  checksum: 10c0/5821849b4c09730cf0f3fc747f1c1d2e28675ec36c9cc12d48fed456d680e8511ebd849704e7c824d4713e514761fc719e11e9abf41741cb2a7deaec609c6985
   languageName: node
   linkType: hard
 
@@ -5198,10 +5205,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eta@npm:^3.1.1":
-  version: 3.4.0
-  resolution: "eta@npm:3.4.0"
-  checksum: 10c0/2fe0f2ad9db9ef8b2288736d8b4176403d4c54ee15d0e24e821059f42267ef61cbc7ff4f3c32901de8fcc34185f3425ae0c9988ffb580781cf1588c9a676f4e7
+"eta@npm:^3.5.0":
+  version: 3.5.0
+  resolution: "eta@npm:3.5.0"
+  checksum: 10c0/28ffc23658e3d77c1ab2660d0158b979688457659fc190d0edca26c186ab34039bec9d6745d975e5f0543981e285cd757bff85b47ea2374ab11444e2b7271dd0
   languageName: node
   linkType: hard
 
@@ -6096,7 +6103,7 @@ __metadata:
     postcss-media-minmax: "npm:5.0.0"
     postcss-sort-media-queries: "npm:5.2.0"
     prettier: "npm:3.5.1"
-    pug-plugin: "npm:5.3.0"
+    pug-plugin: "npm:6.0.0"
     sass: "npm:1.84.0"
     sass-loader: "npm:16.0.4"
     sharp: "npm:0.33.5"
@@ -6112,28 +6119,28 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"html-bundler-webpack-plugin@npm:3.14.0":
-  version: 3.14.0
-  resolution: "html-bundler-webpack-plugin@npm:3.14.0"
+"html-bundler-webpack-plugin@npm:4.16.0":
+  version: 4.16.0
+  resolution: "html-bundler-webpack-plugin@npm:4.16.0"
   dependencies:
     "@types/html-minifier-terser": "npm:^7.0.2"
-    ansis: "npm:2.0.3"
+    ansis: "npm:3.9.0"
     enhanced-resolve: "npm:>=5.7.0"
-    eta: "npm:^3.1.1"
+    eta: "npm:^3.5.0"
     html-minifier-terser: "npm:^7.2.0"
   peerDependencies:
-    ejs: ">=3.1.9"
-    favicons: ">=7.1.4"
-    handlebars: ">=4.7.7"
-    liquidjs: ">=10.7.0"
+    ejs: ">=3.1.10"
+    favicons: ">=7.2.0"
+    handlebars: ">=4.7.8"
+    liquidjs: ">=10.17.0"
     markdown-it: ">=12"
     mustache: ">=4.2.0"
     nunjucks: ">=3.2.3"
     parse5: ">=7.1.2"
     prismjs: ">=1.29.0"
-    pug: ">=3.0.2"
+    pug: ">=3.0.3"
     twig: ">=1.17.1"
-    webpack: ">=5.32.0"
+    webpack: ">=5.81.0"
   peerDependenciesMeta:
     ejs:
       optional: true
@@ -6157,7 +6164,7 @@ __metadata:
       optional: true
     twig:
       optional: true
-  checksum: 10c0/640a6cfb2e59a1412673fa4c98c2794e3c15ba4b0957a67ec64c98d61714c5a125970885e5ab13396728db0bca19c37489d174fe1cbdad68e466d3decc04a743
+  checksum: 10c0/5395623bd23f5e4e32e371f2ec0b7c69d4c367997c41e315d3f29cbc2ff64da23c31a14c1f4ddcd3dc325531d345e7270595a0d27e9003d0d17d1b725071ff8e
   languageName: node
   linkType: hard
 
@@ -9142,17 +9149,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pug-plugin@npm:5.3.0":
-  version: 5.3.0
-  resolution: "pug-plugin@npm:5.3.0"
+"pug-plugin@npm:6.0.0":
+  version: 6.0.0
+  resolution: "pug-plugin@npm:6.0.0"
   dependencies:
-    ansis: "npm:2.0.3"
-    html-bundler-webpack-plugin: "npm:3.14.0"
+    ansis: "npm:3.10.0"
+    html-bundler-webpack-plugin: "npm:4.16.0"
     js-beautify: "npm:^1.15.1"
     pug: "npm:3.0.3"
   peerDependencies:
-    webpack: ">=5.32.0"
-  checksum: 10c0/768122adf1298007bb0f4673946bfa444e13d68e7daa3fa93a69ff8948c9a3ec8d963a150989a74ec6a1bf1fe101afe993dd2964a0ee02b8501c0eb53b3c038a
+    webpack: ">=5.96.0"
+  checksum: 10c0/ab947c6f582455a306db84a8eab7d467c66803edf3408214dfee2b13a0161721516d6bd975b3bf0be9d21f8741e3d5aca86e39486572bfe9014f64e2e315401f
   languageName: node
   linkType: hard
 
